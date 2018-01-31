@@ -225,8 +225,7 @@ public class QuizzController {
 	@RequestMapping(value ="saveQuestion")
 	public ModelAndView saveQuestion(@ModelAttribute("Questions") Questions question, BindingResult result) {
 				
-		Date d = new Date();
-		
+		Date d = new Date();		
 		Questions questions = new Questions();
 		
 		questions.setQuizze(question.getQuizze());
@@ -238,8 +237,7 @@ public class QuizzController {
 		questions.setCreatedOn(d);
 		questions.setUpdatedOn(d);
 		
-		questionServices.save(questions);
-		
+		questionServices.save(questions);		
 		
 		return new ModelAndView("redirect:/Quizz/addQuestion/"+ question.getQuizze().getIdQuiz());	
 	}
