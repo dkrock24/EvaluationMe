@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/lan/header :: header"></head>
+
+<body class="login" id="page-top">
+<!-- LOGIN START
+========================================================================= -->
+<div class="blue-color full-container text-center">
+  <div>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 login-box"> <a class="logo" href="index.html"><img alt="logo" src="/assets/landing/images/logo.png"/></a>
+      <aside class="col-xs-12 textbox">
+        <h2 class="black">Client Login</h2>
+        <form name="loginform" method="post" id="loginform">
+          <div class="form-group">
+            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" placeholder="Username" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-key"></i></span>
+              <input type="password" placeholder="Password" class="form-control"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"/>
+                Remember me</label>
+              <a href="#">Forgot password</a> </div>
+          </div>
+          <div class="form-group">
+            <button class="dmbutton btn btn-primary" type="submit">Login</button>
+          </div>
+        </form>
+        <!--textbox--> 
+      </aside>
+      <div class="copyright-text">Copyright © 2014 - All right reserved. Designed by Designing Media
+        Preferred Hosting Partner - MissHosting.com, Web Hosting at 1.00€ per month!</div>
+      <!--login-box--> 
+    </div>
+  </div>
+  <!--blue-color--> 
+</div>
+<!-- /. LOGIN ENDS
+    ========================================================================= --> 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>
