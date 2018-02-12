@@ -15,6 +15,10 @@ body, select, input, div {
 	color: #777;
 	font-size: 14px;
 	line-height: 18px;
+	
+}
+#locales{
+	margin-top: 7px;
 }
 img {
 	border: none;

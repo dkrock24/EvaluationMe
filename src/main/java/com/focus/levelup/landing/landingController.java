@@ -1,17 +1,22 @@
 package com.focus.levelup.landing;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("landing")
 public class landingController {
+	
 
-	@RequestMapping("index")
+
+	@GetMapping("index")
 	public String landing() {
 		
 		return "landing/index";
 	}
+	
+	
 	
 	@RequestMapping("about")
 	public String about() {
@@ -35,5 +40,11 @@ public class landingController {
 	public String pricing() {
 		
 		return "landing/pricing";
+	}
+	
+	@RequestMapping("features")
+	public String features() {
+		
+		return "landing/features";
 	}
 }
