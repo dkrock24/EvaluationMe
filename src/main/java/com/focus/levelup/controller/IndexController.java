@@ -23,6 +23,6 @@ public class IndexController {
 		List<Roles> role =  (List<Roles>) roleServices.findAll();
 		
 		model.addAttribute("data", role);
-		return "home/index";
+		return "backend/home/index";
 	}
 }
