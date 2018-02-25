@@ -11,16 +11,15 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name="Quizzes.findAll", query="SELECT q FROM Quizzes q")
+@Table(name="quizzes")
+@NamedQuery(name="Quizze.findAll", query="SELECT q FROM Quizzes q")
 public class Quizzes implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_quiz")
 	private int idQuiz;
-
-	@Column(name="created_by")
-	private String createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_on")
@@ -41,20 +40,20 @@ public class Quizzes implements Serializable {
 	@OneToMany(mappedBy="quizze")
 	private List<Questions> questions;
 
-	//bi-directional many-to-one association to ProgrammingLanguage
-	@ManyToOne
-	@JoinColumn(name="id_language")
-	private ProgrammingLanguage programmingLanguage;
-
 	//bi-directional many-to-one association to QuizLevels
 	@ManyToOne
 	@JoinColumn(name="id_level")
-	private QuizLevels quizLevel;
+	private QuizLevels quizLevels;
+
+	//bi-directional many-to-one association to Topic
+	@ManyToOne
+	@JoinColumn(name="id_topic")
+	private Topic topic;
 
 	//bi-directional many-to-one association to Users
 	@ManyToOne
 	@JoinColumn(name="id_amin")
-	private Users user;
+	private Users users;
 
 	//bi-directional many-to-one association to Tests
 	@OneToMany(mappedBy="quizze")
@@ -69,14 +68,6 @@ public class Quizzes implements Serializable {
 
 	public void setIdQuiz(int idQuiz) {
 		this.idQuiz = idQuiz;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
 	}
 
 	public Date getCreatedOn() {
@@ -127,42 +118,42 @@ public class Quizzes implements Serializable {
 		this.questions = questions;
 	}
 
-	public Questions addQuestion(Questions question) {
-		getQuestions().add(question);
-		question.setQuizze(this);
+	public Questions addQuestion(Questions questions) {
+		getQuestions().add(questions);
+		questions.setQuizze(this);
 
-		return question;
+		return questions;
 	}
 
-	public Questions removeQuestion(Questions question) {
-		getQuestions().remove(question);
-		question.setQuizze(null);
+	public Questions removeQuestion(Questions questions) {
+		getQuestions().remove(questions);
+		questions.setQuizze(null);
 
-		return question;
-	}
-
-	public ProgrammingLanguage getProgrammingLanguage() {
-		return this.programmingLanguage;
-	}
-
-	public void setProgrammingLanguage(ProgrammingLanguage programmingLanguage) {
-		this.programmingLanguage = programmingLanguage;
+		return questions;
 	}
 
 	public QuizLevels getQuizLevel() {
-		return this.quizLevel;
+		return this.quizLevels;
 	}
 
-	public void setQuizLevel(QuizLevels quizLevel) {
-		this.quizLevel = quizLevel;
+	public void setQuizLevel(QuizLevels quizLevels) {
+		this.quizLevels = quizLevels;
+	}
+
+	public Topic getTopic() {
+		return this.topic;
+	}
+
+	public void setTopic(Topic topic) {
+		this.topic = topic;
 	}
 
 	public Users getUser() {
-		return this.user;
+		return this.users;
 	}
 
-	public void setUser(Users user) {
-		this.user = user;
+	public void setUser(Users users) {
+		this.users = users;
 	}
 
 	public List<Tests> getTests() {
@@ -173,18 +164,18 @@ public class Quizzes implements Serializable {
 		this.tests = tests;
 	}
 
-	public Tests addTest(Tests test) {
-		getTests().add(test);
-		test.setQuizze(this);
+	public Tests addTest(Tests tests) {
+		getTests().add(tests);
+		tests.setQuizze(this);
 
-		return test;
+		return tests;
 	}
 
-	public Tests removeTest(Tests test) {
-		getTests().remove(test);
-		test.setQuizze(null);
+	public Tests removeTest(Tests tests) {
+		getTests().remove(tests);
+		tests.setQuizze(null);
 
-		return test;
+		return tests;
 	}
 
 }

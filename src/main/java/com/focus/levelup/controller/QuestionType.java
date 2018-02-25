@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.focus.levelup.model.ProgrammingLanguage;
+
 import com.focus.levelup.model.QuestionTypes;
 import com.focus.levelup.model.QuizLevels;
 import com.focus.levelup.model.Users;
-import com.focus.levelup.services.ProgrammingLanguageService;
+
 import com.focus.levelup.services.QuestionTypesService;
 import com.focus.levelup.services.QuizLevelsService;
 import com.focus.levelup.services.QuizzesServices;
@@ -25,11 +25,10 @@ import com.focus.levelup.services.TestsService;
 
 
 @Controller
-@RequestMapping("QuestionType")
+@RequestMapping("QuestionTypes")
 public class QuestionType {
 	
-	@Autowired
-	ProgrammingLanguageService languagesServices;
+
 	
 	@Autowired
 	QuizLevelsService QlevelServices;
@@ -46,12 +45,12 @@ public class QuestionType {
 	@RequestMapping("index")
 	public String index(Model model) {
 		
-		int countLanguages = (int) languagesServices.count();
+		//int countLanguages = (int) languagesServices.count();
 		int countQLevel = (int) QlevelServices.count();
 		int countQuizz = (int) quizzesServices.count();
 		int countPendingTest = (int) testServices.count();
 				
-		model.addAttribute("totalLanguages", countLanguages);
+		//model.addAttribute("totalLanguages", countLanguages);
 		model.addAttribute("totalLevels", countQLevel);
 		model.addAttribute("countQuizz", countQuizz);
 		model.addAttribute("countPendingTest", countPendingTest);
@@ -67,12 +66,12 @@ public class QuestionType {
 		model.addAttribute("qt",qt);
 		
 		// Basic Count 
-		int countLanguages = (int) languagesServices.count();
+		//int countLanguages = (int) languagesServices.count();
 		int countQLevel = (int) QlevelServices.count();
 		int countQuizz = (int) quizzesServices.count();
 		int countPendingTest = (int) testServices.count();
 				
-		model.addAttribute("totalLanguages", countLanguages);
+		//model.addAttribute("totalLanguages", countLanguages);
 		model.addAttribute("totalLevels", countQLevel);
 		model.addAttribute("countQuizz", countQuizz);
 		model.addAttribute("countPendingTest", countPendingTest);
@@ -94,7 +93,7 @@ public class QuestionType {
 		
 		questionType.save(type);
 		
-		return new ModelAndView("redirect:/QuestionType/addQuestionType");
+		return new ModelAndView("redirect:/QuestionTypes/addQuestionType");
 	}	
 	
 	/*
@@ -126,7 +125,7 @@ public class QuestionType {
 		
 		questionType.save(qt);		
 		
-		return new ModelAndView("redirect:/QuestionType/addQuestionType");
+		return new ModelAndView("redirect:/QuestionTypes/addQuestionType");
 	}	
 	
 }

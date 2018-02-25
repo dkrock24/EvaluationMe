@@ -11,11 +11,13 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="tests")
 @NamedQuery(name="Tests.findAll", query="SELECT t FROM Tests t")
 public class Tests implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_test")
 	private int idTest;
 
@@ -34,10 +36,10 @@ public class Tests implements Serializable {
 	private int status;
 
 	//bi-directional many-to-one association to TestResults
-	@OneToMany(mappedBy="test")
+	@OneToMany(mappedBy="tests")
 	private List<TestResults> testResults;
 
-	//bi-directional many-to-one association to Quizzes
+	//bi-directional many-to-one association to Quizze
 	@ManyToOne
 	@JoinColumn(name="id_quiz")
 	private Quizzes quizze;
@@ -45,7 +47,7 @@ public class Tests implements Serializable {
 	//bi-directional many-to-one association to Users
 	@ManyToOne
 	@JoinColumn(name="id_user")
-	private Users user;
+	private Users users;
 
 	public Tests() {
 	}
@@ -98,18 +100,18 @@ public class Tests implements Serializable {
 		this.testResults = testResults;
 	}
 
-	public TestResults addTestResult(TestResults testResult) {
-		getTestResults().add(testResult);
-		testResult.setTest(this);
+	public TestResults addTestResult(TestResults testResults) {
+		getTestResults().add(testResults);
+		testResults.setTest(this);
 
-		return testResult;
+		return testResults;
 	}
 
-	public TestResults removeTestResult(TestResults testResult) {
-		getTestResults().remove(testResult);
-		testResult.setTest(null);
+	public TestResults removeTestResult(TestResults testResults) {
+		getTestResults().remove(testResults);
+		testResults.setTest(null);
 
-		return testResult;
+		return testResults;
 	}
 
 	public Quizzes getQuizze() {
@@ -121,11 +123,11 @@ public class Tests implements Serializable {
 	}
 
 	public Users getUser() {
-		return this.user;
+		return this.users;
 	}
 
-	public void setUser(Users user) {
-		this.user = user;
+	public void setUser(Users users) {
+		this.users = users;
 	}
 
 }

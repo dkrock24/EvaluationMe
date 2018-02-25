@@ -11,16 +11,15 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="questions")
 @NamedQuery(name="Questions.findAll", query="SELECT q FROM Questions q")
 public class Questions implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_questions")
 	private int idQuestions;
-
-	@Column(name="created_by")
-	private String createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_on")
@@ -30,29 +29,26 @@ public class Questions implements Serializable {
 
 	private int status;
 
-	@Column(name="updated_by")
-	private String updatedBy;
-
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="updated_on")
 	private Date updatedOn;
 
-	//bi-directional many-to-one association to Answer
-	@OneToMany(mappedBy="question")
-	private List<Answer> answers;
+	//bi-directional many-to-one association to Answers
+	@OneToMany(mappedBy="questions")
+	private List<Answers> answers;
 
 	//bi-directional many-to-one association to QuestionTypes
 	@ManyToOne
 	@JoinColumn(name="id_type")
-	private QuestionTypes questionType;
+	private QuestionTypes questionTypes;
 
-	//bi-directional many-to-one association to Quizzes
+	//bi-directional many-to-one association to Quizze
 	@ManyToOne
 	@JoinColumn(name="id_quiz")
 	private Quizzes quizze;
 
 	//bi-directional many-to-one association to TestResults
-	@OneToMany(mappedBy="question")
+	@OneToMany(mappedBy="questions")
 	private List<TestResults> testResults;
 
 	public Questions() {
@@ -64,14 +60,6 @@ public class Questions implements Serializable {
 
 	public void setIdQuestions(int idQuestions) {
 		this.idQuestions = idQuestions;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
 	}
 
 	public Date getCreatedOn() {
@@ -98,14 +86,6 @@ public class Questions implements Serializable {
 		this.status = status;
 	}
 
-	public String getUpdatedBy() {
-		return this.updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
 	public Date getUpdatedOn() {
 		return this.updatedOn;
 	}
@@ -114,34 +94,34 @@ public class Questions implements Serializable {
 		this.updatedOn = updatedOn;
 	}
 
-	public List<Answer> getAnswers() {
+	public List<Answers> getAnswers() {
 		return this.answers;
 	}
 
-	public void setAnswers(List<Answer> answers) {
+	public void setAnswers(List<Answers> answers) {
 		this.answers = answers;
 	}
 
-	public Answer addAnswer(Answer answer) {
-		getAnswers().add(answer);
-		answer.setQuestion(this);
+	public Answers addAnswer(Answers answers) {
+		getAnswers().add(answers);
+		answers.setQuestion(this);
 
-		return answer;
+		return answers;
 	}
 
-	public Answer removeAnswer(Answer answer) {
-		getAnswers().remove(answer);
-		answer.setQuestion(null);
+	public Answers removeAnswer(Answers answers) {
+		getAnswers().remove(answers);
+		answers.setQuestion(null);
 
-		return answer;
+		return answers;
 	}
 
 	public QuestionTypes getQuestionType() {
-		return this.questionType;
+		return this.questionTypes;
 	}
 
-	public void setQuestionType(QuestionTypes questionType) {
-		this.questionType = questionType;
+	public void setQuestionType(QuestionTypes questionTypes) {
+		this.questionTypes = questionTypes;
 	}
 
 	public Quizzes getQuizze() {
@@ -160,18 +140,18 @@ public class Questions implements Serializable {
 		this.testResults = testResults;
 	}
 
-	public TestResults addTestResult(TestResults testResult) {
-		getTestResults().add(testResult);
-		testResult.setQuestion(this);
+	public TestResults addTestResult(TestResults testResults) {
+		getTestResults().add(testResults);
+		testResults.setQuestion(this);
 
-		return testResult;
+		return testResults;
 	}
 
-	public TestResults removeTestResult(TestResults testResult) {
-		getTestResults().remove(testResult);
-		testResult.setQuestion(null);
+	public TestResults removeTestResult(TestResults testResults) {
+		getTestResults().remove(testResults);
+		testResults.setQuestion(null);
 
-		return testResult;
+		return testResults;
 	}
 
 }

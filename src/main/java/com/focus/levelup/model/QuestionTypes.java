@@ -16,8 +16,11 @@ public class QuestionTypes implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_type")
 	private int idType;
+
+	private String description;
 
 	@Column(name="friendly_name")
 	private String friendlyName;
@@ -27,7 +30,7 @@ public class QuestionTypes implements Serializable {
 	private String type;
 
 	//bi-directional many-to-one association to Questions
-	@OneToMany(mappedBy="questionType")
+	@OneToMany(mappedBy="questionTypes")
 	private List<Questions> questions;
 
 	public QuestionTypes() {
@@ -39,6 +42,14 @@ public class QuestionTypes implements Serializable {
 
 	public void setIdType(int idType) {
 		this.idType = idType;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getFriendlyName() {
@@ -73,18 +84,18 @@ public class QuestionTypes implements Serializable {
 		this.questions = questions;
 	}
 
-	public Questions addQuestion(Questions question) {
-		getQuestions().add(question);
-		question.setQuestionType(this);
+	public Questions addQuestion(Questions questions) {
+		getQuestions().add(questions);
+		questions.setQuestionType(this);
 
-		return question;
+		return questions;
 	}
 
-	public Questions removeQuestion(Questions question) {
-		getQuestions().remove(question);
-		question.setQuestionType(null);
+	public Questions removeQuestion(Questions questions) {
+		getQuestions().remove(questions);
+		questions.setQuestionType(null);
 
-		return question;
+		return questions;
 	}
 
 }

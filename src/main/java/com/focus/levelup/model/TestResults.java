@@ -15,23 +15,26 @@ public class TestResults implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_result")
 	private int idResult;
 
-	//bi-directional many-to-one association to Answer
+	private int state;
+
+	//bi-directional many-to-one association to Answers
 	@ManyToOne
 	@JoinColumn(name="id_answer")
-	private Answer answer;
+	private Answers answers;
 
 	//bi-directional many-to-one association to Questions
 	@ManyToOne
 	@JoinColumn(name="id_question")
-	private Questions question;
+	private Questions questions;
 
 	//bi-directional many-to-one association to Tests
 	@ManyToOne
 	@JoinColumn(name="id_test")
-	private Tests test;
+	private Tests tests;
 
 	public TestResults() {
 	}
@@ -44,28 +47,36 @@ public class TestResults implements Serializable {
 		this.idResult = idResult;
 	}
 
-	public Answer getAnswer() {
-		return this.answer;
+	public int getState() {
+		return this.state;
 	}
 
-	public void setAnswer(Answer answer) {
-		this.answer = answer;
+	public void setState(int state) {
+		this.state = state;
+	}
+
+	public Answers getAnswer() {
+		return this.answers;
+	}
+
+	public void setAnswer(Answers answers) {
+		this.answers = answers;
 	}
 
 	public Questions getQuestion() {
-		return this.question;
+		return this.questions;
 	}
 
-	public void setQuestion(Questions question) {
-		this.question = question;
+	public void setQuestion(Questions questions) {
+		this.questions = questions;
 	}
 
 	public Tests getTest() {
-		return this.test;
+		return this.tests;
 	}
 
-	public void setTest(Tests test) {
-		this.test = test;
+	public void setTest(Tests tests) {
+		this.tests = tests;
 	}
 
 }

@@ -31,6 +31,6 @@ public interface UserService extends CrudRepository<Users, Integer> {
 	List<Users> findAllByEmail(@Param("email") String email);
 
 	//Get all users by RoleId
-	@Query("SELECT u FROM Users u WHERE u.role.idRole = :roleId")
+	@Query("SELECT u FROM Users u WHERE u.roles.idRole = :roleId")
 	List<Users> findAllByRoleId(@Param("roleId") int roleId);
 }

@@ -37,7 +37,11 @@ public class landingController {
 	}
 	
 	@RequestMapping("pricing")
-	public String pricing() {
+	public String pricing(Model model) {
+		
+		List<Plane> pricing = (List<Plane>) pricingService.findAll();
+		
+		model.addAttribute("pricing", pricing);
 		
 		return "landing/pricing";
 	}

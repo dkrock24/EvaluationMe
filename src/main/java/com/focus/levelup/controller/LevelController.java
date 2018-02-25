@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.focus.levelup.model.ProgrammingLanguage;
+
 import com.focus.levelup.model.QuizLevels;
 import com.focus.levelup.model.Users;
-import com.focus.levelup.services.ProgrammingLanguageService;
+
 import com.focus.levelup.services.QuizLevelsService;
 import com.focus.levelup.services.QuizzesServices;
 import com.focus.levelup.services.TestsService;
@@ -26,8 +26,7 @@ import com.focus.levelup.services.TestsService;
 @RequestMapping("Level")
 public class LevelController {
 	
-	@Autowired
-	ProgrammingLanguageService languagesServices;
+
 	
 	@Autowired
 	QuizLevelsService QlevelServices;
@@ -38,16 +37,16 @@ public class LevelController {
 	@Autowired
 	TestsService testServices;
 	
-	@Autowired
-	QuizzController quizzcontroller;
+	//@Autowired
+	//QuizzController quizzcontroller;
 
 	@RequestMapping("index")
 	public String index(Model model) {
 						
-		model.addAttribute("totalLanguages", quizzcontroller.totalProgramming());
-		model.addAttribute("totalLevels", quizzcontroller.totalLevels());
-		model.addAttribute("countQuizz", quizzcontroller.totalQuizz());
-		model.addAttribute("countPendingTest", quizzcontroller.totalPendingTest());
+//		model.addAttribute("totalLanguages", quizzcontroller.totalProgramming());
+//		model.addAttribute("totalLevels", quizzcontroller.totalLevels());
+//		model.addAttribute("countQuizz", quizzcontroller.totalQuizz());
+//		model.addAttribute("countPendingTest", quizzcontroller.totalPendingTest());
 		
 		return "quizzLevel/indexLevel";
 	}
@@ -59,10 +58,10 @@ public class LevelController {
 		
 		model.addAttribute("ql",ql);
 		
-		model.addAttribute("totalLanguages", quizzcontroller.totalProgramming());
-		model.addAttribute("totalLevels", quizzcontroller.totalLevels());
-		model.addAttribute("countQuizz", quizzcontroller.totalQuizz());
-		model.addAttribute("countPendingTest", quizzcontroller.totalPendingTest());
+//		model.addAttribute("totalLanguages", quizzcontroller.totalProgramming());
+//		model.addAttribute("totalLevels", quizzcontroller.totalLevels());
+//		model.addAttribute("countQuizz", quizzcontroller.totalQuizz());
+//		model.addAttribute("countPendingTest", quizzcontroller.totalPendingTest());
 		
 		return "quizzLevel/addLevel";
 	}

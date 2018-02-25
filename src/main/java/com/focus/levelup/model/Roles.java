@@ -10,11 +10,13 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="roles")
 @NamedQuery(name="Roles.findAll", query="SELECT r FROM Roles r")
 public class Roles implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_role")
 	private int idRole;
 
@@ -23,7 +25,7 @@ public class Roles implements Serializable {
 	private int status;
 
 	//bi-directional many-to-one association to Users
-	@OneToMany(mappedBy="role")
+	@OneToMany(mappedBy="roles")
 	private List<Users> users;
 
 	public Roles() {
@@ -61,18 +63,18 @@ public class Roles implements Serializable {
 		this.users = users;
 	}
 
-	public Users addUser(Users user) {
-		getUsers().add(user);
-		user.setRole(this);
+	public Users addUser(Users users) {
+		getUsers().add(users);
+		users.setRole(this);
 
-		return user;
+		return users;
 	}
 
-	public Users removeUser(Users user) {
-		getUsers().remove(user);
-		user.setRole(null);
+	public Users removeUser(Users users) {
+		getUsers().remove(users);
+		users.setRole(null);
 
-		return user;
+		return users;
 	}
 
 }

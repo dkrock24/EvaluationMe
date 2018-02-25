@@ -1,337 +1,177 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="fragments/lan/header :: header"></head>
 
-<body id="page-top" class="home-page">
+<body id="page-top">
 	<div id="loader"></div>
 	<div id="section-home">
 
 		<header id="header" th:replace="fragments/lan/menu :: header"></header>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script type="text/javascript">
 $(document).ready(function() {
     $("#locales").change(function () {    	
         var selectedOption = $('#locales').val();
         if (selectedOption != ''){
-            window.location.replace('index?lang=' + selectedOption);
+            window.location.replace('pricing?lang=' + selectedOption);
         }
     });
 });
 </script>
 
-		
-		<!-- SLIDER STARTS
+
+		<!-- BANNER STARTS
     ========================================================================= -->
-		<div id="slider">
-			<div class="tp-banner-container">
-				<div class="tp-banner">
-					<ul>
-						<!-- SLIDE  1-->
-						<li data-transition="fade" data-slotamount="7"
-							data-masterspeed="500" 
-							data-thumb="/assets/landing/images/banner-slide/thumbnail/slide1.jpg"
-							data-saveperformance="on" data-title="Slide 1">
-							<!-- LAYERS --> <!-- LAYER NR. 1 -->
-							<h1 class="tp-caption lft customout rs-parallaxlevel-0"
-								data-x="left" data-y="100"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1550"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 2; white-space: pre-wrap;" th:text="#{slider1.text1 } ">
-								
-							</h1> <!-- LAYER NR. 2 -->
-														
-							<div class="tp-caption tp-resizeme customout rs-parallaxlevel-0"
-								data-x="left" data-y="400"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1400"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">
-								<a class="largeredbtn" href="#" th:text="#{slider.btn1}">Try it for free</a>
-							</div> <!-- LAYER NR. 3 -->
-							<div class="tp-caption tp-resizeme customout rs-parallaxlevel-0"
-								data-x="140" data-y="400"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1100"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">
-								<a class="largeredbtn" href="#" th:text="#{slider.btn2}">How it works?</a>
-							</div> <!-- LAYER NR. 4 -->
-							<div
-								class="tp-caption medium_text tp-resizeme customout rs-parallaxlevel-0"
-								data-x="left" data-y="450"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1500"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 5;">* Lorem
-								Ipsum is that it has a distribution of letters,</div> <!-- LAYER NR. 5 -->
-							<div class="tp-caption medium_text customin" data-x="right"
-								data-y="80"
-								data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="500" data-start="2000"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 6;">
-								<img src="/assets/landing/images/banner-slide/banner_image.png" alt="" />
-							</div>
-						</li>
-						<!-- SLIDE  2-->
-						<li data-transition="slideleft" data-slotamount="7"
-							data-masterspeed="2000"
-							data-thumb="/assets/landing/images/banner-slide/thumbnail/slide2.jpg"
-							data-delay="10000" data-saveperformance="on" data-title="Slide 2">
-							<!-- LAYERS --> <!-- LAYER NR. 1 -->
-							<h1 class="tp-caption lft randomrotateout customout"
-								data-x="left" data-y="100"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1550"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 2;  white-space: pre-wrap;" th:text="#{slider2.text2 }">
-								
-								
-							</h1> <!-- LAYER NR. 2 -->
-							<div class="tp-caption tp-resizeme customout rs-parallaxlevel-0"
-								data-x="left" data-y="400"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1400"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">
-								<a class="largeredbtn" href="#" th:text="#{slider.btn1}">Try it for free</a>
-							</div> <!-- LAYER NR. 3 -->
-							<div class="tp-caption tp-resizeme customout rs-parallaxlevel-0"
-								data-x="140" data-y="400"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1100"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">
-								<a class="largeredbtn" href="#" th:text="#{slider.btn2}">How it works?</a>
-							</div> <!-- LAYER NR. 4 -->
-							<div
-								class="tp-caption medium_text tp-resizeme customout rs-parallaxlevel-0"
-								data-x="left" data-y="450"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1500"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 5;">* Lorem
-								Ipsum is that it has a distribution of letters,</div> <!-- LAYER NR. 5 -->
-							<div class="tp-caption lft customout rs-parallaxlevel-0"
-								data-x="650" data-y="266"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="500" data-start="2000"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 6;">
-								<img src="/assets/landing/images/banner-slide/slide2-image1.png" alt="" />
-							</div> <!-- LAYER NR. 6 -->
-							<div class="tp-caption lft customout rs-parallaxlevel-0"
-								data-x="680" data-y="132"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="800" data-start="2500"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 6;">
-								<img src="/assets/landing/images/banner-slide/slide2-image2.png" alt=""/>
-							</div> <!-- LAYER NR. 7 -->
-							<div class="tp-caption lft customout rs-parallaxlevel-0"
-								data-x="700" data-y="70"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="1000" data-start="3000"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 6;">
-								<img src="/assets/landing/images/banner-slide/slide2-image3.png" alt=""/>
-							</div>
-						</li>
-						<!-- SLIDE 3 -->
-						<li data-transition="slideup" data-slotamount="7"
-							data-masterspeed="1000"
-							data-thumb="/assets/landing/images/banner-slide/thumbnail/slide3.jpg"
-							data-saveperformance="on" data-title="Slide 3">
-							<!-- LAYERS --> <!-- LAYER NR. 1 -->
-							<h1 class="tp-caption lft customout" data-x="left" data-y="100"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1550"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 2; white-space: pre-wrap;" th:text="#{slider3.text3 }">
-								
-							</h1> <!-- LAYER NR. 2 -->
-							<div class="tp-caption tp-resizeme customout rs-parallaxlevel-0"
-								data-x="left" data-y="400"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1400"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">
-								<a class="largeredbtn" href="#" th:text="#{slider.btn1}">Try it for free</a>
-							</div> <!-- LAYER NR. 3 -->
-							<div class="tp-caption tp-resizeme customout rs-parallaxlevel-0"
-								data-x="140" data-y="400"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1100"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1"
-								style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">
-								<a class="largeredbtn" href="#" th:text="#{slider.btn2}">How it works?</a>
-							</div> <!-- LAYER NR. 4 -->
-							<div
-								class="tp-caption medium_text tp-resizeme customout rs-parallaxlevel-0"
-								data-x="left" data-y="450"
-								data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="700" data-start="1500"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 5;">* Lorem
-								Ipsum is that it has a distribution of letters,</div> <!-- LAYER NR. 5 -->
-							<div class="tp-caption customin" data-x="650" data-y="110"
-								data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-								data-speed="500" data-start="2000"
-								data-easing="Power3.easeInOut" data-elementdelay="0.1"
-								data-endelementdelay="0.1" style="z-index: 6;">
-								<img src="/assets/landing/images/banner-slide/banner_image3.png" alt=""/>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!-- /. SLIDER ENDS
+		<aside class="col-xs-12 subbanner">
+			<h1>Plans and pricing</h1>
+			<p>Lorem Ipsum is that it has a more-or-less normal distribution
+				of letters.</p>
+		</aside>
+		<!-- /. BANNER ENDS
     ========================================================================= -->
+		<div class="clearfix"></div>
 		<!--section-home-->
 	</div>
-	<!-- WELCOME MESSAGE STARTS
+	<!-- PLANS PRICING STARTS
 ========================================================================= -->
-	<div class="clear"></div>
-	<div class="container padding-box" id="about-us">
-		<div class="row header">
-			<article class="col-xs-12 textbox text-center">
-				<h2 class="black" th:text="#{welcome.title}">Welcome to</h2>
-				<p>em Ipsum is that it has a more-or-less normal distribution of
-					letters, as opposed to usingable English. Many desktop publishing
-					packages and web page editors now use dorem ontent here content
-					here making it look like readIpsum as their d search for'lorem
-					ipsum will uncover many web darious versions have evolved over the
-					years.</p>
-			</article>
-		</div>
-		<!--container-->
-	</div>
-	<div class="blue-color padding-box">
-		<div class="container">
+	<div class="grey-color">
+		<div class="container padding-box" id="pricing">
 			<div class="row header">
-				<div class="col-xs-12 text-white-color">
-					<aside class="col-sm-6 col-xs-12 textlt">
-						<h2 class="white">Industry's Standard Dummy Text</h2>
-						<p class="white">Lorem Ipsum is that it has a more-or-less
-							normal distribution of letters, as opposed to using ontent here
-							content here making it look like readable English. Many desktop
-							publishing packages and web page editors now use.</p>
-						<button aria-expanded="false" class="btn transparent-btn"
-							type="button">Read More</button>
+
+				<article class="col-xs-12 textbox plan-pricing text-center">
+					<h2 class="black">Choose You Best Pricing Plans</h2>
+					<p>Texto de precio.</p>
+					<aside class="col-xs-12 col-sm-4">
+						<div class="col-sm-12 plan-detail">
+							<ul class="list-group">
+								<li th:text="#{title.users}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.dashboard}"><a
+									class="toll-tip fa fa-info-circle" href="#"
+									data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.reports}"><a
+									class="toll-tip fa fa-info-circle" href="#"
+									data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.quizzes}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.survies}"><a
+									class="toll-tip fa fa-info-circle" href="#"
+									data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.notification}"><a
+									class="toll-tip fa fa-info-circle" href="#"
+									data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.email}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.setting}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.room}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+							</ul>
+						</div>
 					</aside>
-					<figure class="col-sm-4 col-xs-4 pull-right">
-						<img class="img-responsive" src="/assets/landing/images/image1.png" />
-					</figure>
-				</div>
+					
+					<aside class="col-xs-12 col-sm-2" th:each="price: ${ pricing }">
+						<div class="col-sm-12 plan1">
+							<h3 th:text="${ price.name }"></h3>
+							<div class="pakage_price">
+								<span class="doller">$</span><span class="numeric">0.0</span><span
+									class="blue">.00</span>/mo
+							</div>
+							<ul>
+								<li>Lorem ipsum</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Molestie lacus denean</li>
+								<li>Hendrerit mauris</li>
+								<li>Lorem ipsum dolor sit amet</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Vestibulum</li>
+								<li>Nonummy hendrerit</li>
+								<li>Nonummy hendrerit</li>
+							</ul>
+							<button aria-expanded="false" class="btn btn-primary btn-lg"
+								type="button">Order Now</button>
+						</div>
+					</aside>
+					<aside class="col-xs-12 col-sm-2">
+						<div class="col-sm-12 plan1">
+							<h3 th:text="#{ title.platinum }"></h3>
+							<div class="pakage_price">
+								<span class="doller">$</span><span class="numeric">15</span><span
+									class="blue">.00</span>/mo
+							</div>
+							<ul>
+								<li>Lorem ipsum</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Molestie lacus denean</li>
+								<li>Hendrerit mauris</li>
+								<li>Lorem ipsum dolor sit amet</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Vestibulum</li>
+								<li>Nonummy hendrerit</li>
+							</ul>
+							<button aria-expanded="false" class="btn btn-primary btn-lg"
+								type="button">Order Now</button>
+						</div>
+					</aside>
+					<aside class="col-xs-12 col-sm-2">
+						<div class="col-sm-12 plan1">
+							<h3 th:text="#{ title.gold }"></h3>
+							<div class="pakage_price">
+								<span class="doller">$</span><span class="numeric">25</span><span
+									class="blue">.00</span>/mo
+							</div>
+							<ul>
+								<li>Dolor sit amet</li>
+								<li>Consuer adipiscing</li>
+								<li>Vestibulum molestie</li>
+								<li>Nonummy hendrerit mauris</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Vestibulum molestie</li>
+								<li>Nonummy hendrerit</li>
+								<li>Nonummy hendrerit</li>
+							</ul>
+							<button aria-expanded="false" class="btn btn-primary btn-lg"
+								type="button">Order Now</button>
+						</div>
+					</aside>
+					<aside class="col-xs-12 col-sm-2">
+						<div class="col-sm-12 plan1">
+							<h3 th:text="#{ title.plus }"></h3>
+							<div class="pakage_price">
+								<span class="doller">$</span><span class="numeric">50</span><span
+									class="blue">.00</span>/mo
+							</div>
+							<ul>
+								<li>Lorem ipsum</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Molestie lacus denean</li>
+								<li>Hendrerit mauris</li>
+								<li>Lorem ipsum dolor sit amet</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Vestibulum</li>
+								<li>Nonummy hendrerit</li>
+							</ul>
+							<button aria-expanded="false" class="btn btn-primary btn-lg"
+								type="button">Order Now</button>
+						</div>
+					</aside>
+				</article>
 			</div>
 			<!--container-->
 		</div>
 	</div>
-	<!-- WELCOME MESSAGE END
-========================================================================= -->
-	<!-- SERVICES SECTION STARTS
-========================================================================= -->
-	<div class="container padding-box" id="service">
-		<div class="row header">
-			<article class="col-xs-12 textbox text-center">
-				<h2 class="black">Our Services</h2>
-				<p>Lorem Ipsum is that it has a more-or-less normal distribution
-					of letters as opposed to using ontent here content here making it
-					look like readable English. Many desktop publishing packages and
-					web page editors now use.</p>
-			</article>
-			<div class="contents services-carousel">
-				<div>
-					<div class="col-xs-12" data-effect="helix">
-						<div class="small-box1" data-effect="slide-top">
-							<span class="fa fa-user"></span>
-							<h4>Marketing</h4>
-							<p>Lorem Ipsum is that it has a more-or-less normal
-								distribution of It was popularised in the 1960s with the
-								release.</p>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="col-xs-12" data-effect="helix">
-						<div class="small-box1" data-effect="slide-top">
-							<span class="fa fa-gear"></span>
-							<h4>Development</h4>
-							<p>Lorem Ipsum is that it has a more-or-less normal
-								distribution of It was popularised in the 1960s with the
-								release.</p>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="col-xs-12" data-effect="helix">
-						<div class="small-box1" data-effect="slide-top">
-							<span class="fa fa-search"></span>
-							<h4>SEO</h4>
-							<p>Lorem Ipsum is that it has a more-or-less normal
-								distribution of It was popularised in the 1960s with the
-								release.</p>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="col-xs-12" data-effect="helix">
-						<div class="small-box1" data-effect="slide-top">
-							<span class="fa fa-globe"></span>
-							<h4>Social Media</h4>
-							<p>Lorem Ipsum is that it has a more-or-less normal
-								distribution of It was popularised in the 1960s with the
-								release.</p>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="col-xs-12" data-effect="helix">
-						<div class="small-box1" data-effect="slide-top">
-							<span class="fa fa-search"></span>
-							<h4>Social Media</h4>
-							<p>Lorem Ipsum is that it has a more-or-less normal
-								distribution of It was popularised in the 1960s with the
-								release.</p>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="col-xs-12" data-effect="helix">
-						<div class="small-box1" data-effect="slide-top">
-							<span class="fa fa-gear"></span>
-							<h4>Social Media</h4>
-							<p>Lorem Ipsum is that it has a more-or-less normal
-								distribution of It was popularised in the 1960s with the
-								release.</p>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="col-xs-12" data-effect="helix">
-						<div class="small-box1" data-effect="slide-top">
-							<span class="fa fa-user"></span>
-							<h4>Social Media</h4>
-							<p>Lorem Ipsum is that it has a more-or-less normal
-								distribution of It was popularised in the 1960s with the
-								release.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--container-->
-	</div>
-	<!-- SERVICES END
+	<!-- PLANS PRICING END
 ========================================================================= -->
 	<!-- WHY CHOOSE US STARTS
 ========================================================================= -->
@@ -373,289 +213,6 @@ $(document).ready(function() {
 	</div>
 	<!-- WHY CHOOSE US END
 ========================================================================= -->
-	<!-- PLANS PRICING STARTS
-========================================================================= -->
-	<div class="grey-color">
-		<div class="container padding-box" id="pricing">
-			<div class="row header">
-				<article class="col-xs-12 textbox text-center">
-					<h2 class="black">Plans and Pricing</h2>
-					<p>Lorem Ipsum is that it has a more-or-less normal
-						distribution of letters as opposed to using ontent here content
-						here making it look like readable English. Many desktop publishing
-						packages and web page editors now use.</p>
-					<aside class="col-xs-12 col-sm-4">
-						<div class="col-sm-12 plan1">
-							<h3>Silver</h3>
-							<div class="pakage_price">
-								<span class="doller">$</span><span class="numeric">4</span><span
-									class="blue">.99</span>/mo
-							</div>
-							<ul>
-								<li>Lorem ipsum dolor sit amet</li>
-								<li>Consuer adipiscing elit praesent</li>
-								<li>Vestibulum molestie lacus denean</li>
-								<li>Nonummy hendrerit mauris</li>
-							</ul>
-							<button aria-expanded="false" class="btn btn-primary btn-lg"
-								type="button">Order Now</button>
-						</div>
-					</aside>
-					<aside class="col-xs-12 col-sm-4">
-						<div class="col-sm-12 plan1">
-							<h3>GOLD</h3>
-							<div class="pakage_price">
-								<span class="doller">$</span><span class="numeric">4</span><span
-									class="blue">.99</span>/mo
-							</div>
-							<ul>
-								<li>Lorem ipsum dolor sit amet</li>
-								<li>Consuer adipiscing elit praesent</li>
-								<li>Vestibulum molestie lacus denean</li>
-								<li>Nonummy hendrerit mauris</li>
-							</ul>
-							<button aria-expanded="false" class="btn btn-primary btn-lg"
-								type="button">Order Now</button>
-						</div>
-					</aside>
-					<aside class="col-xs-12 col-sm-4">
-						<div class="col-sm-12 plan1">
-							<h3>Silver</h3>
-							<div class="pakage_price">
-								<span class="doller">$</span><span class="numeric">4</span><span
-									class="blue">.99</span>/mo
-							</div>
-							<ul>
-								<li>Lorem ipsum dolor sit amet</li>
-								<li>Consuer adipiscing elit praesent</li>
-								<li>Vestibulum molestie lacus denean</li>
-								<li>Nonummy hendrerit mauris</li>
-							</ul>
-							<button aria-expanded="false" class="btn btn-primary btn-lg"
-								type="button">Order Now</button>
-						</div>
-					</aside>
-				</article>
-			</div>
-			<!--container-->
-		</div>
-	</div>
-	<!-- PLANS PRICING END
-========================================================================= -->
-	<!-- WE BUILD TRUST STARTS
-========================================================================= -->
-	<div class="blue-color padding-box">
-		<div class="container">
-			<div class="row header">
-				<article class="col-xs-12 textbox text-center">
-					<h2 class="white white_circle">We Build the Trust</h2>
-					<p class="white">Lorem Ipsum is that it has a more-or-less
-						normal distribution of letters, as opposed to using ontent here
-						content here making it look like readable English. Many desktop
-						publishing packages and web page editors now use.</p>
-					<aside class="trustbox">
-						<ul class="list-inline">
-							<li>
-								<div class="counter">
-									<span class="fa fa-rocket"></span>
-									<div class="numeric stat-count">250</div>
-									DELIVERED
-									<!--counter-->
-								</div>
-							</li>
-							<li>
-								<div class="counter">
-									<span class="fa fa-trophy"></span>
-									<div class="numeric stat-count">300+</div>
-									Awards winS
-									<!--counter-->
-								</div>
-							</li>
-							<li>
-								<div class="counter">
-									<span class="fa fa-crosshairs"></span>
-									<div class="numeric stat-count">500</div>
-									TARGET ACHIEVED
-									<!--counter-->
-								</div>
-							</li>
-							<li>
-								<div class="counter">
-									<span class="fa fa-smile-o"></span>
-									<div class="numeric stat-count">700+</div>
-									Happy Clients
-									<!--counter-->
-								</div>
-							</li>
-						</ul>
-					</aside>
-				</article>
-			</div>
-			<!--container-->
-		</div>
-	</div>
-	<!-- PLANS PRICING END
-========================================================================= -->
-	<!-- PORTFOLIO STARTS
-========================================================================= -->
-	<div class="container padding-box" id="portfolio">
-		<div class="row header">
-			<article class="col-xs-12 textbox text-center">
-				<h2 class="black">Our Portfolio</h2>
-				<p>Lorem Ipsum is that it has a more-or-less normal distribution
-					of letters.</p>
-				<div class="portfolio-section col-xs-12">
-					<ul id="cartegories" class="list-inline">
-						<li><a data-filter="" class="filter active">All</a></li>
-						<li><a data-filter="development" class="filter">Development</a></li>
-						<li><a data-filter="apps" class="filter">Apps</a></li>
-						<li><a data-filter="design" class="filter">Design</a></li>
-					</ul>
-					<div class="col-xs-12" id="porfolio-masonry">
-						<div class="porfolio_smallbox col-sm-4 col-xs-12"
-							data-filter="development">
-							<div class="top-section">
-								<img src="/assets/landing/images/porfolio-image/01_portfolio.png" alt=""/>
-								<div class="text-hide">
-									<div>
-										<span class="search"><a data-rel="prettyPhoto"
-											href="/assets/landing/images/porfolio-image/01_portfolio.png">K</a></span><span
-											class="combine"><a href="#">9</a></span>
-									</div>
-								</div>
-							</div>
-							<!--showcasebox-->
-						</div>
-						<div class="porfolio_smallbox col-sm-4 col-xs-12"
-							data-filter="development">
-							<div class="top-section">
-								<img src="/assets/landing/images/porfolio-image/02_portfolio.png" alt="" />
-								<div class="text-hide">
-									<div>
-										<span class="search"><a data-rel="prettyPhoto"
-											href="/assets/landing/images/porfolio-image/02_portfolio.png">K</a></span><span
-											class="combine"><a href="#">9</a></span>
-									</div>
-								</div>
-							</div>
-							<!--showcasebox-->
-						</div>
-						<div class="porfolio_smallbox col-sm-4 col-xs-12"
-							data-filter="apps">
-							<div class="top-section">
-								<img src="/assets/landing/images/porfolio-image/03_portfolio.png" alt=""/>
-								<div class="text-hide">
-									<div>
-										<span class="search"><a data-rel="prettyPhoto"
-											href="/assets/landing/images/porfolio-image/03_portfolio.png">K</a></span><span
-											class="combine"><a href="#">9</a></span>
-									</div>
-								</div>
-							</div>
-							<!--showcasebox-->
-						</div>
-						<div class="porfolio_smallbox col-sm-4 col-xs-12"
-							data-filter="apps">
-							<div class="top-section">
-								<img src="/assets/landing/images/porfolio-image/04_portfolio.png" alt=""/>
-								<div class="text-hide">
-									<div>
-										<span class="search"><a data-rel="prettyPhoto"
-											href="/assets/landing/images/porfolio-image/04_portfolio.png">K</a></span><span
-											class="combine"><a href="#">9</a></span>
-									</div>
-								</div>
-							</div>
-							<!--showcasebox-->
-						</div>
-						<div class="porfolio_smallbox col-sm-4 col-xs-12"
-							data-filter="design">
-							<div class="top-section">
-								<img src="/assets/landing/images/porfolio-image/05_portfolio.png" alt=""/>
-								<div class="text-hide">
-									<div>
-										<span class="search"><a data-rel="prettyPhoto"
-											href="/assets/landing/images/porfolio-image/05_portfolio.png">K</a></span><span
-											class="combine"><a href="#">9</a></span>
-									</div>
-								</div>
-							</div>
-							<!--showcasebox-->
-						</div>
-						<div class="porfolio_smallbox col-sm-4 col-xs-12"
-							data-filter="vcard">
-							<div class="top-section">
-								<img src="/assets/landing/images/porfolio-image/06_portfolio.png" alt="" />
-								<div class="text-hide">
-									<div>
-										<span class="search"><a data-rel="prettyPhoto"
-											href="/assets/landing/images/porfolio-image/06_portfolio.png">K</a></span><span
-											class="combine"><a href="#">9</a></span>
-									</div>
-								</div>
-							</div>
-							<!--showcasebox-->
-						</div>
-					</div>
-					<button aria-expanded="false" class="btn btn-primary btn-lg"
-						type="button">View All Portfolio</button>
-					<!--design_showcase-->
-				</div>
-			</article>
-		</div>
-		<!--container-->
-	</div>
-	<!-- PORTFOLIO END
-========================================================================= -->
-	<!-- TESTIMONIAL STARTS
-========================================================================= -->
-	<div class="black-color padding-box" id="testimonial">
-		<div class="container">
-			<div class="row header">
-				<article class="col-xs-12 textbox text-center">
-					<div class="contents testimonial-carousel">
-						<div>
-							<figure class="shape fa fa-heart-o"></figure>
-							<h2 class="white">10,000+ user,who love us</h2>
-							<p class="white">Lorem Ipsum is that it has a more-or-less
-								normal distribution of letters, as opposed to using ontent here
-								content here making it look like readable English. Many desktop
-								publishing packages and web page editors now use.</p>
-							<p class="white">
-								<span class="author-name">Johan Doe</span><br /> <a href="#">www.clientwebsitehere.com</a>
-							</p>
-						</div>
-						<div>
-							<figure class="shape fa fa-heart-o"></figure>
-							<h2 class="white">10,000+ user,who love us</h2>
-							<p class="white">Lorem Ipsum is that it has a more-or-less
-								normal distribution of letters, as opposed to using ontent here
-								content here making it look like readable English. Many desktop
-								publishing packages and web page editors now use.</p>
-							<p class="white">
-								<span class="author-name">Johan Doe</span><br /> <a href="#">www.clientwebsitehere.com</a>
-							</p>
-						</div>
-						<div>
-							<figure class="shape fa fa-heart-o"></figure>
-							<h2 class="white">10,000+ user,who love us</h2>
-							<p class="white">Lorem Ipsum is that it has a more-or-less
-								normal distribution of letters, as opposed to using ontent here
-								content here making it look like readable English. Many desktop
-								publishing packages and web page editors now use.</p>
-							<p class="white">
-								<span class="author-name">Johan Doe</span><br /> <a href="#">www.clientwebsitehere.com</a>
-							</p>
-						</div>
-						<!--contents-->
-					</div>
-				</article>
-			</div>
-			<!--container-->
-		</div>
-	</div>
-	<!-- TESTIMONIAL END
-========================================================================= -->
 	<!-- PARTNER STARTS
 ========================================================================= -->
 	<div class="padding-box">
@@ -664,32 +221,32 @@ $(document).ready(function() {
 				<div class="contents partner-carousel text-center">
 					<div>
 						<figure>
-							<span><img src="/assets/landing/images/partners/partner-logo1.png" alt=""/></span>
+							<span><img src="images/partners/partner-logo1.png" alt=""/></span>
 						</figure>
 					</div>
 					<div>
 						<figure>
-							<span><img src="/assets/landing/images/partners/partner-logo2.png" alt=""/></span>
+							<span><img src="images/partners/partner-logo2.png" alt=""/></span>
 						</figure>
 					</div>
 					<div>
 						<figure>
-							<span><img src="/assets/landing/images/partners/partner-logo3.png" alt=""/></span>
+							<span><img src="images/partners/partner-logo3.png" alt=""/></span>
 						</figure>
 					</div>
 					<div>
 						<figure>
-							<span><img src="/assets/landing/images/partners/partner-logo4.png" alt=""/></span>
+							<span><img src="images/partners/partner-logo4.png" alt=""/></span>
 						</figure>
 					</div>
 					<div>
 						<figure>
-							<span><img src="/assets/landing/images/partners/partner-logo5.png" alt=""/></span>
+							<span><img src="images/partners/partner-logo5.png" alt=""/></span>
 						</figure>
 					</div>
 					<div>
 						<figure>
-							<span><img src="/assets/landing/images/partners/partner-logo6.png" alt=""/></span>
+							<span><img src="images/partners/partner-logo6.png" alt=""/></span>
 						</figure>
 					</div>
 				</div>
@@ -743,101 +300,11 @@ $(document).ready(function() {
 	</div>
 	<!-- SOCIAL SECTION END
 ========================================================================= -->
-	
-	
-	<!-- FOOTER STARTS
+		<!-- FOOTER STARTS
 ========================================================================= -->	
 	<footer id="footer" th:replace="fragments/lan/footer :: footer"></footer>
 	<!-- FOOTER END
 ========================================================================= -->
 
-
-
-
-
-	<!-- Slider Revolution 4.x Scripts -->
-	<script type="text/javascript"
-		th:src="@{/assets/landing/js/rs-plugin/jquery.themepunch.tools.min.js}"></script>
-	<script type="text/javascript"
-		th:src="@{/assets/landing/js/rs-plugin/jquery.themepunch.revolution.min.js}"></script>
-	<!-- Masonary Porfilio Scripts -->
-	<script type="text/javascript" th:src="@{/assets/landing/js/masonary/masonry3.1.4.js}"></script>
-	<script type="text/javascript" th:src="@{/assets/landing/js/masonary/masonry.filter.js}"></script>
-	<script type="text/javascript" th:src="@{/assets/landing/js/masonary/imagesloaded.js}"></script>
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			jQuery('.tp-banner').show().revolution({
-				dottedOverlay : "none",
-				delay : 16000,
-				startwidth : 1170,
-				startheight : 700,
-				hideThumbs : 200,
-
-				thumbWidth : 100,
-				thumbHeight : 50,
-				thumbAmount : 5,
-
-				navigationType : "bullet",
-				navigationArrows : "solo",
-				navigationStyle : "preview4",
-
-				touchenabled : "on",
-				onHoverStop : "on",
-
-				swipe_velocity : 0.7,
-				swipe_min_touches : 1,
-				swipe_max_touches : 1,
-				drag_block_vertical : false,
-
-				parallax : "mouse",
-				parallaxBgFreeze : "on",
-				parallaxLevels : [ 7, 4, 3, 2, 5, 4, 3, 2, 1, 0 ],
-
-				keyboardNavigation : "off",
-
-				navigationHAlign : "center",
-				navigationVAlign : "bottom",
-				navigationHOffset : 0,
-				navigationVOffset : 20,
-
-				soloArrowLeftHalign : "left",
-				soloArrowLeftValign : "center",
-				soloArrowLeftHOffset : 20,
-				soloArrowLeftVOffset : 0,
-
-				soloArrowRightHalign : "right",
-				soloArrowRightValign : "center",
-				soloArrowRightHOffset : 20,
-				soloArrowRightVOffset : 0,
-
-				shadow : 0,
-				fullWidth : "off",
-				fullScreen : "on",
-
-				spinner : "spinner4",
-
-				stopLoop : "off",
-				stopAfterLoops : -1,
-				stopAtSlide : -1,
-
-				shuffle : "off",
-
-				autoHeight : "off",
-				forceFullWidth : "off",
-
-				hideThumbsOnMobile : "off",
-				hideNavDelayOnMobile : 1500,
-				hideBulletsOnMobile : "off",
-				hideArrowsOnMobile : "off",
-				hideThumbsUnderResolution : 0,
-
-				hideSliderAtLimit : 0,
-				hideCaptionAtLimit : 0,
-				hideAllCaptionAtLilmit : 0,
-				startWithSlide : 0,
-				fullScreenOffsetContainer : "#header"
-			});
-		}); //ready
-	</script>
 </body>
 </html>

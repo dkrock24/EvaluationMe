@@ -13,15 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.focus.levelup.model.Answer;
-import com.focus.levelup.model.ProgrammingLanguage;
+import com.focus.levelup.model.Answers;
+
 import com.focus.levelup.model.QuestionTypes;
 import com.focus.levelup.model.Questions;
 import com.focus.levelup.model.QuizLevels;
 import com.focus.levelup.model.Quizzes;
 import com.focus.levelup.model.Users;
 import com.focus.levelup.services.AnswerService;
-import com.focus.levelup.services.ProgrammingLanguageService;
 import com.focus.levelup.services.QuestionTypesService;
 import com.focus.levelup.services.QuestionsService;
 import com.focus.levelup.services.QuizLevelsService;
@@ -35,8 +34,7 @@ import com.focus.levelup.services.UserService;
 @RequestMapping("Quizz")
 public class QuizzController {
 	
-	@Autowired
-	private ProgrammingLanguageService languagesServices;
+
 	
 	@Autowired
 	private QuizLevelsService QlevelServices;
@@ -62,7 +60,7 @@ public class QuizzController {
 	@RequestMapping("index")
 	public String index(Model model) {
 		
-		List<Quizzes> quizzes = (List<Quizzes>) quizzesServices.findAllOrderedByIdAsc();
+		List<Quizzes> quizzes = (List<Quizzes>) quizzesServices.findAll();
 				
 		model.addAttribute("totalLanguages", totalProgramming());
 		model.addAttribute("totalLevels", totalLevels());
@@ -77,14 +75,14 @@ public class QuizzController {
 	@RequestMapping("addLanguages")
 	public String addLanguages(Model model) {
 		
-		List<ProgrammingLanguage> pl = (List<ProgrammingLanguage>) languagesServices.findAllOrderedByIdAsc();
-		
-		model.addAttribute("pl",pl);
-						
-		model.addAttribute("totalLanguages", totalProgramming());
-		model.addAttribute("totalLevels", totalLevels());
-		model.addAttribute("countQuizz", totalQuizz());
-		model.addAttribute("countPendingTest", totalPendingTest());
+//		List<ProgrammingLanguage> pl = (List<ProgrammingLanguage>) languagesServices.findAll();
+//		
+//		model.addAttribute("pl",pl);
+//						
+//		model.addAttribute("totalLanguages", totalProgramming());
+//		model.addAttribute("totalLevels", totalLevels());
+//		model.addAttribute("countQuizz", totalQuizz());
+//		model.addAttribute("countPendingTest", totalPendingTest());
 		
 		return "quizz/addLanguages";
 	}
@@ -93,13 +91,13 @@ public class QuizzController {
 	 * SAVE NEW PROGRAMMING LANGUAGES
 	 */
 	@RequestMapping("saveLanguage")
-	public ModelAndView saveLanguage(@ModelAttribute("ProgrammingLanguage") ProgrammingLanguage languages, BindingResult result) {
+	public ModelAndView saveLanguage() {
 		
-		ProgrammingLanguage pl = new ProgrammingLanguage();
-		pl.setLanguage(languages.getLanguage());
-		pl.setStatus(languages.getStatus());
-		
-		languagesServices.save(pl);
+//		ProgrammingLanguage pl = new ProgrammingLanguage();
+//		pl.setLanguage(languages.getLanguage());
+//		pl.setStatus(languages.getStatus());
+//		
+//		languagesServices.save(pl);
 		
 		return new ModelAndView("redirect:/Quizz/addLanguages");
 	}	
@@ -110,11 +108,11 @@ public class QuizzController {
 	@RequestMapping(value ="editLanguages/{id}", method= RequestMethod.GET)
 	public String editLanguage(Model model,@PathVariable int id) {
 		
-		List<ProgrammingLanguage> pl = (List<ProgrammingLanguage>) languagesServices.findAllOrderedByIdAsc();			
-		ProgrammingLanguage pl_edit = languagesServices.findOne(id);
-		
-		model.addAttribute("pl",pl);
-		model.addAttribute("languages", pl_edit);
+//		List<ProgrammingLanguage> pl = (List<ProgrammingLanguage>) languagesServices.findAllOrderedByIdAsc();			
+//		ProgrammingLanguage pl_edit = languagesServices.findOne(id);
+//		
+//		model.addAttribute("pl",pl);
+//		model.addAttribute("languages", pl_edit);
 		
 		return ("quizz/editLanguages");
 	}
@@ -124,13 +122,13 @@ public class QuizzController {
 	 * UPDATE PROGRAMMING LANGUAGES
 	 */
 	@RequestMapping("updateLanguage")
-	public ModelAndView updateLanguage(@ModelAttribute("ProgrammingLanguage") ProgrammingLanguage languages, BindingResult result) {
-		
-		ProgrammingLanguage pl = languagesServices.findOne(languages.getIdLanguage());
-		pl.setLanguage(languages.getLanguage());
-		pl.setStatus(languages.getStatus());
-		
-		languagesServices.save(pl);		
+	public ModelAndView updateLanguage() {
+		//@ModelAttribute("ProgrammingLanguage") ProgrammingLanguage languages, BindingResult result
+//		ProgrammingLanguage pl = languagesServices.findOne(languages.getIdLanguage());
+//		pl.setLanguage(languages.getLanguage());
+//		pl.setStatus(languages.getStatus());
+//		
+//		languagesServices.save(pl);		
 		
 		return new ModelAndView("redirect:/Quizz/addLanguages");
 	}	
@@ -142,7 +140,7 @@ public class QuizzController {
 	@RequestMapping(value ="addQuizz")
 	public String addQuizz(Model model) {
 		
-		List<Quizzes> quizzes = (List<Quizzes>) quizzesServices.findAllOrderedByIdAsc();		
+		List<Quizzes> quizzes = (List<Quizzes>) quizzesServices.findAll();		
 						
 		model.addAttribute("totalLanguages", totalProgramming());
 		model.addAttribute("totalLevels", totalLevels());
@@ -152,11 +150,11 @@ public class QuizzController {
 		model.addAttribute("quizzes",quizzes);
 		
 		// Services		
-		List<ProgrammingLanguage> pl = (List<ProgrammingLanguage>) languagesServices.findAllOrderedByIdAsc();	
-		List<QuizLevels> ql = (List<QuizLevels>) QlevelServices.findAll();
+//		List<ProgrammingLanguage> pl = (List<ProgrammingLanguage>) languagesServices.findAllOrderedByIdAsc();	
+//		List<QuizLevels> ql = (List<QuizLevels>) QlevelServices.findAll();
 		
-		model.addAttribute("languages",pl);
-		model.addAttribute("ql",ql);
+//		model.addAttribute("languages",pl);
+//		model.addAttribute("ql",ql);
 		
 		return ("quizz/addQuizz");
 	}
@@ -170,26 +168,26 @@ public class QuizzController {
 		Date d = new Date();		
 		
 		//Create Instance of Quizz
-		Quizzes quizzes = new Quizzes();
-		quizzes.setProgrammingLanguage(quizz.getProgrammingLanguage());
-		quizzes.setQuizLevel(quizz.getQuizLevel());
-		quizzes.setDescription(quizz.getDescription());
-		quizzes.setCreatedOn(d);
-		quizzes.setCreatedBy("Test");
-		quizzes.setStatus(quizz.getStatus());
-		quizzes.setUser(user);		
+//		Quizzes quizzes = new Quizzes();
+//		quizzes.setProgrammingLanguage(quizz.getProgrammingLanguage());
+//		quizzes.setQuizLevel(quizz.getQuizLevel());
+//		quizzes.setDescription(quizz.getDescription());
+//		quizzes.setCreatedOn(d);
+//		quizzes.setCreatedBy("Tests");
+//		quizzes.setStatus(quizz.getStatus());
+//		quizzes.setUser(user);		
 		
-		Quizzes quiz = quizzesServices.save(quizzes);		
-		int idQuiz = quiz.getIdQuiz();
-		
-		return new ModelAndView("redirect:/Quizz/addQuestion/"+idQuiz);
+//		Quizzes quiz = quizzesServices.save(quizzes);		
+//		int idQuiz = quiz.getIdQuiz();
+//		
+		return new ModelAndView("redirect:/Quizz/addQuestion/"+1);
 	}
 	
 	/*
 	 * QUESTION SECTION ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
 	 */
 	
-	// Load Form of Question
+	// Load Form of Questions
 	@RequestMapping(value ="addQuestion/{idQuiz}")
 	public String addQuestion(Model model,@PathVariable int idQuiz) {
 		
@@ -202,7 +200,7 @@ public class QuizzController {
 		model.addAttribute("question",question);
 		
 		// Find Quizz
-		List<Quizzes> quizzes = (List<Quizzes>) quizzesServices.findAllOrderedByIdAsc();		
+		List<Quizzes> quizzes = (List<Quizzes>) quizzesServices.findAll();		
 			
 		model.addAttribute("quizzes",quizzes);
 				
@@ -221,7 +219,7 @@ public class QuizzController {
 		return ("quizz/addQuestion");
 	}
 	
-	// Insert Question of Quizzes
+	// Insert Questions of Quizzes
 	@RequestMapping(value ="saveQuestion")
 	public ModelAndView saveQuestion(@ModelAttribute("Questions") Questions question, BindingResult result) {
 				
@@ -232,8 +230,8 @@ public class QuizzController {
 		questions.setQuestionType(question.getQuestionType());			
 		questions.setQuestion(question.getQuestion());
 		questions.setStatus(question.getStatus());
-		questions.setCreatedBy("tes");
-		questions.setUpdatedBy("test");
+//		questions.setCreatedBy("tes");
+//		questions.setUpdatedBy("test");
 		questions.setCreatedOn(d);
 		questions.setUpdatedOn(d);
 		
@@ -285,7 +283,7 @@ public class QuizzController {
 		
 		Questions question = questionServices.findOne(idQuestion);
 		
-		List<Answer> answers = question.getAnswers();		
+		List<Answers> answers = question.getAnswers();		
 		
 		model.addAttribute("question", question );
 		model.addAttribute("answer", answers );
@@ -293,12 +291,12 @@ public class QuizzController {
 		return "quizz/addAnswer";
 	}
 	
-	// Save Answer
+	// Save Answers
 	@RequestMapping(value="saveAnswer", method=RequestMethod.POST)
-	public ModelAndView saveAnswer(@ModelAttribute("Answer") Answer answer, BindingResult result) {
+	public ModelAndView saveAnswer(@ModelAttribute("Answers") Answers answer, BindingResult result) {
 		
 		Date date = new Date();
-		Answer answers = new Answer();
+		Answers answers = new Answers();
 		
 		answers.setQuestion(answer.getQuestion());
 		answers.setAnswer(answer.getAnswer());
@@ -306,8 +304,8 @@ public class QuizzController {
 		answers.setStatus(answer.getStatus());
 		answers.setCreatedOn(date);
 		answers.setUpdatedOn(date);
-		answers.setCreatedBy("Test");
-		answers.setUpdatedBy("Test");
+//		answers.setCreatedBy("Tests");
+//		answers.setUpdatedBy("Tests");
 		
 		answerServices.save(answers);
 		
@@ -315,16 +313,16 @@ public class QuizzController {
 	}
 	
 	
-	// Edit Answer
+	// Edit Answers
 	@RequestMapping(value="editAnswer/{idAnswer}", method=RequestMethod.GET)
 	public String editAnswer(Model model, @PathVariable int idAnswer) {
 		
-		Answer answer = answerServices.findOne(idAnswer);
+		Answers answer = answerServices.findOne(idAnswer);
 		model.addAttribute("answerOne", answer);
 		
 		Questions question = questionServices.findOne(answer.getQuestion().getIdQuestions());
 		
-		List<Answer> answers = question.getAnswers();		
+		List<Answers> answers = question.getAnswers();		
 		
 		model.addAttribute("question", question );
 		model.addAttribute("answer", answers );
@@ -332,11 +330,11 @@ public class QuizzController {
 		return "quizz/editAnswer";
 	}
 	
-	// 	Update Answer
+	// 	Update Answers
 	@RequestMapping(value="updateAnswer", method=RequestMethod.POST)
-	public ModelAndView updateAnswer(Model model, @ModelAttribute("Answer") Answer answer, BindingResult result) {
+	public ModelAndView updateAnswer(Model model, @ModelAttribute("Answers") Answers answer, BindingResult result) {
 		
-		Answer answers = answerServices.findOne(answer.getIdAnswer());
+		Answers answers = answerServices.findOne(answer.getIdAnswer());
 		
 		Date date = new Date();
 		
@@ -353,7 +351,7 @@ public class QuizzController {
 	@RequestMapping(value = "deleteAnswer/{id}", method = RequestMethod.GET )
 	public ModelAndView deleteAnswer(@PathVariable int id ) {
 		
-		Answer answer = answerServices.findOne(id);
+		Answers answer = answerServices.findOne(id);
 		
 		answerServices.delete(answer.getIdAnswer());		
 		
@@ -368,13 +366,13 @@ public class QuizzController {
 	@RequestMapping(value="editQuizz/{id}", method= RequestMethod.GET )
 	public String editQuizz(Model model, @PathVariable int id) {
 		
-		List<ProgrammingLanguage> pl = (List<ProgrammingLanguage>) languagesServices.findAllOrderedByIdAsc();	
-		List<QuizLevels> ql = (List<QuizLevels>) QlevelServices.findAll();		
-		Quizzes quizz = quizzesServices.findOne(id);
-		
-		model.addAttribute("languages",pl);
-		model.addAttribute("ql",ql);		
-		model.addAttribute("quizz", quizz);
+//		List<ProgrammingLanguage> pl = (List<ProgrammingLanguage>) languagesServices.findAllOrderedByIdAsc();	
+//		List<QuizLevels> ql = (List<QuizLevels>) QlevelServices.findAll();		
+//		Quizzes quizz = quizzesServices.findOne(id);
+//		
+//		model.addAttribute("languages",pl);
+//		model.addAttribute("ql",ql);		
+//		model.addAttribute("quizz", quizz);
 		
 		return "quizz/editQuizz";
 	}
@@ -387,16 +385,16 @@ public class QuizzController {
 		
 		Date d = new Date();		
 		
-		//Create Instance of Quizz
-		quizzes.setProgrammingLanguage(quizz.getProgrammingLanguage());
-		quizzes.setQuizLevel(quizz.getQuizLevel());
-		quizzes.setDescription(quizz.getDescription());
-		quizzes.setUpdatedOn(d);
-		quizzes.setCreatedBy("Test");
-		quizzes.setStatus(quizz.getStatus());
-		quizzes.setUser(quizz.getUser());		
-		
-		quizzesServices.save(quizzes);
+//		//Create Instance of Quizz
+//		quizzes.setProgrammingLanguage(quizz.getProgrammingLanguage());
+//		quizzes.setQuizLevel(quizz.getQuizLevel());
+//		quizzes.setDescription(quizz.getDescription());
+//		quizzes.setUpdatedOn(d);
+//		quizzes.setCreatedBy("Tests");
+//		quizzes.setStatus(quizz.getStatus());
+//		quizzes.setUser(quizz.getUser());		
+//		
+//		quizzesServices.save(quizzes);
 		
 		return new ModelAndView("redirect:/Quizz/index");
 	}
@@ -408,8 +406,8 @@ public class QuizzController {
 	
 	public int totalProgramming() {
 		
-		int countLanguages = (int) languagesServices.count();		
-		return countLanguages;
+//		int countLanguages = (int) languagesServices.count();		
+		return 1;//countLanguages;
 	}
 	
 	public int totalLevels() {

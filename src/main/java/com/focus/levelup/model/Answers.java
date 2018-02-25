@@ -12,19 +12,17 @@ import java.util.List;
  */
 @Entity
 @Table(name="answers")
-@NamedQuery(name="Answer.findAll", query="SELECT a FROM Answer a")
-public class Answer implements Serializable {
+@NamedQuery(name="Answers.findAll", query="SELECT a FROM Answers a")
+public class Answers implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_answer")
 	private int idAnswer;
 
 	@Lob
 	private String answer;
-
-	@Column(name="created_by")
-	private String createdBy;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_on")
@@ -34,9 +32,6 @@ public class Answer implements Serializable {
 
 	private int status;
 
-	@Column(name="updated_by")
-	private String updatedBy;
-
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="updated_on")
 	private Date updatedOn;
@@ -44,13 +39,13 @@ public class Answer implements Serializable {
 	//bi-directional many-to-one association to Questions
 	@ManyToOne
 	@JoinColumn(name="id_question")
-	private Questions question;
+	private Questions questions;
 
 	//bi-directional many-to-one association to TestResults
-	@OneToMany(mappedBy="answer")
+	@OneToMany(mappedBy="answers")
 	private List<TestResults> testResults;
 
-	public Answer() {
+	public Answers() {
 	}
 
 	public int getIdAnswer() {
@@ -67,14 +62,6 @@ public class Answer implements Serializable {
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
-	}
-
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
 	}
 
 	public Date getCreatedOn() {
@@ -101,14 +88,6 @@ public class Answer implements Serializable {
 		this.status = status;
 	}
 
-	public String getUpdatedBy() {
-		return this.updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
 	public Date getUpdatedOn() {
 		return this.updatedOn;
 	}
@@ -118,11 +97,11 @@ public class Answer implements Serializable {
 	}
 
 	public Questions getQuestion() {
-		return this.question;
+		return this.questions;
 	}
 
-	public void setQuestion(Questions question) {
-		this.question = question;
+	public void setQuestion(Questions questions) {
+		this.questions = questions;
 	}
 
 	public List<TestResults> getTestResults() {
@@ -133,18 +112,18 @@ public class Answer implements Serializable {
 		this.testResults = testResults;
 	}
 
-	public TestResults addTestResult(TestResults testResult) {
-		getTestResults().add(testResult);
-		testResult.setAnswer(this);
+	public TestResults addTestResult(TestResults testResults) {
+		getTestResults().add(testResults);
+		testResults.setAnswer(this);
 
-		return testResult;
+		return testResults;
 	}
 
-	public TestResults removeTestResult(TestResults testResult) {
-		getTestResults().remove(testResult);
-		testResult.setAnswer(null);
+	public TestResults removeTestResult(TestResults testResults) {
+		getTestResults().remove(testResults);
+		testResults.setAnswer(null);
 
-		return testResult;
+		return testResults;
 	}
 
 }
