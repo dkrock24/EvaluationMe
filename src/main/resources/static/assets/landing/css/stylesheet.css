@@ -522,13 +522,13 @@ h2.white_circle:after {
 .plan1 ul {
 	list-style: none;
 	padding: 0px;
-	margin: 15px 0;
+	margin: 10px 0;
 	float: left;
 	width: 100%;
 }
 .plan1 ul li {
 	border-bottom: 1px solid rgba(0,0,0,0.2);
-	padding: 10px 0;
+
 }
 .plan1 ul li:last-child {
 	border: none;
