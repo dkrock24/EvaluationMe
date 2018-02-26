@@ -10,7 +10,7 @@
   <div>
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 login-box"> <a class="logo" href="index.html"><img alt="logo" src="/assets/landing/images/logo.png"/></a>
       <aside class="col-xs-12 textbox">
-        <h2 class="black">Client Login</h2>
+        <h2 class="black" th:text="#{login.title}"></h2>
         <form name="loginform" method="post" id="loginform">
           <div class="form-group">
             <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -26,8 +26,9 @@
             <div class="checkbox">
               <label>
                 <input type="checkbox"/>
-                Remember me</label>
-              <a href="#">Forgot password</a> </div>
+                <span th:text="#{login.remember}"></span>	
+                </label>
+              <a href="#" th:text="#{login.Forgot}"></a> </div>
           </div>
           <div class="form-group">
             <button class="dmbutton btn btn-primary" type="submit">Login</button>
@@ -35,8 +36,7 @@
         </form>
         <!--textbox--> 
       </aside>
-      <div class="copyright-text">Copyright © 2014 - All right reserved. Designed by Designing Media
-        Preferred Hosting Partner - MissHosting.com, Web Hosting at 1.00€ per month!</div>
+      <div class="copyright-text">Copyright © 2018</div>
       <!--login-box--> 
     </div>
   </div>

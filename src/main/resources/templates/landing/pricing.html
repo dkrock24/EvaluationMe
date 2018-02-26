@@ -25,9 +25,8 @@ $(document).ready(function() {
 		<!-- BANNER STARTS
     ========================================================================= -->
 		<aside class="col-xs-12 subbanner">
-			<h1>Plans and pricing</h1>
-			<p>Lorem Ipsum is that it has a more-or-less normal distribution
-				of letters.</p>
+			<h1 th:text="#{pricing.title}"></h1>
+			<p></p>
 		</aside>
 		<!-- /. BANNER ENDS
     ========================================================================= -->
@@ -41,8 +40,7 @@ $(document).ready(function() {
 			<div class="row header">
 
 				<article class="col-xs-12 textbox plan-pricing text-center">
-					<h2 class="black">Choose You Best Pricing Plans</h2>
-					<p>Texto de precio.</p>
+					<h2 class="black" th:text="#{pricing.description}"></h2>
 					<aside class="col-xs-12 col-sm-4">
 						<div class="col-sm-12 plan-detail">
 							<ul class="list-group">
@@ -95,7 +93,7 @@ $(document).ready(function() {
 							</ul>
 							
 							<button aria-expanded="false" class="btn btn-primary btn-lg"
-								type="button">Order Now</button>
+								type="button" th:text="#{ pricing.ordernow }"></button>
 						</div>
 					</aside>
 					<!-- 
@@ -177,29 +175,26 @@ $(document).ready(function() {
 		<div class="container">
 			<div class="row header">
 				<article class="col-xs-12 textbox text-center">
-					<h2 class="white white_circle">Why Choose Us</h2>
-					<p class="white">Lorem Ipsum is that it has a more-or-less
-						normal distribution of letters, as opposed to using ontent here
-						content here making it look like rea able snglish. Many desktop
-						publishing packages and web page editors now use.</p>
+					<h2 class="white white_circle" th:text="#{pricing.whychooseus}"></h2>
+					<p class="white" th:text="#{pricing.services}" ></p>
 					<div class="thumbnail-box">
 						<ul class="list-inline">
-							<li><a href="#"><span class="fa fa-envelope"></span>Contact</a></li>
-							<li><a href="#"><span class="fa fa-comments"></span>Discus</a></li>
+							<li><a href="#"><span class="fa fa-envelope"></span>Notification</a></li>
+							<li><a href="#"><span class="fa fa-users"></span>Users</a></li>
 							<li><a href="#">
-									<div class="new_tag"></div> <span class="fa fa-briefcase"></span>Professional
+									<div class="new_tag"></div> <span class="fa fa-clipboard"></span>Test
 							</a></li>
-							<li><a href="#"><span class="fa fa-flash"></span>Get
-									Idea</a></li>
-							<li><a href="#"><span class="fa fa-gears"></span>Development</a></li>
-							<li><a href="#"><span class="fa fa-comment"></span>Comments</a></li>
+							<li><a href="#"><span class="fa fa-file"></span>Survy
+									</a></li>
+							<li><a href="#"><span class="fa fa-bar-chart"></span>Dashboard</a></li>
+							<li><a href="#"><span class="fa fa-home"></span>Rooms</a></li>
 							<li><a href="#">
-									<div class="new_tag hot_tag"></div> <span class="fa fa-trophy"></span>Complete
+									<div class="new_tag hot_tag"></div> <span class="fa fa-folder"></span>Reports
 							</a></li>
 							<li><a href="#">
 									<div class="new_tag"></div> <span class="fa fa-diamond"></span>Quality
 							</a></li>
-							<li><a href="#"><span class="fa fa-rocket"></span>Deliver</a></li>
+							<li><a href="#"><span class="fa fa-clock-o"></span>Time</a></li>
 						</ul>
 					</div>
 					<button aria-expanded="false" class="btn transparent-btn"
@@ -222,31 +217,6 @@ $(document).ready(function() {
 							<span><img src="images/partners/partner-logo1.png" alt=""/></span>
 						</figure>
 					</div>
-					<div>
-						<figure>
-							<span><img src="images/partners/partner-logo2.png" alt=""/></span>
-						</figure>
-					</div>
-					<div>
-						<figure>
-							<span><img src="images/partners/partner-logo3.png" alt=""/></span>
-						</figure>
-					</div>
-					<div>
-						<figure>
-							<span><img src="images/partners/partner-logo4.png" alt=""/></span>
-						</figure>
-					</div>
-					<div>
-						<figure>
-							<span><img src="images/partners/partner-logo5.png" alt=""/></span>
-						</figure>
-					</div>
-					<div>
-						<figure>
-							<span><img src="images/partners/partner-logo6.png" alt=""/></span>
-						</figure>
-					</div>
 				</div>
 				<!--row-->
 			</div>
@@ -261,14 +231,10 @@ $(document).ready(function() {
 		<div class="container">
 			<div class="row header">
 				<article class="col-xs-12 social-icons text-center">
-					<h2 class="white">Join The 115,000+ Satisfied Users!</h2>
+					<h2 class="white" th:text="#{pricing.join}"></h2>
 					<ul class="list-inline">
 						<li><a href="#"><span class="fa fa-facebook"></span>facebook</a></li>
-						<li><a href="#"><span class="fa fa-twitter"></span>Twitter</a></li>
-						<li><a href="#"><span class="fa fa-google-plus"></span>Google+</a></li>
-						<li><a href="#"><span class="fa fa-dribbble"></span>Dribble</a></li>
-						<li><a href="#"><span class="fa fa-linkedin"></span>Linkedin</a></li>
-						<li><a href="#"><span class="fa fa-instagram"></span>Instagram</a></li>
+						<li><a href="#"><span class="fa fa-google-plus"></span>Google+</a></li>					
 					</ul>
 					<!--textbox-->
 				</article>
