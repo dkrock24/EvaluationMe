@@ -25,4 +25,9 @@ public class IndexController {
 		model.addAttribute("data", role);
 		return "backend/home/index";
 	}
+	
+	@RequestMapping("dashboard")
+	public String dashboard(Model model) {
+		return "backend/home/dashboard";
+	}
 }
