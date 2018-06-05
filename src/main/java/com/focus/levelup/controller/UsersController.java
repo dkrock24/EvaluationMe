@@ -40,7 +40,7 @@ public class UsersController {
 		
 		model.addAttribute("users", user);
 		
-		return "users/index";
+		return "backend/users/index";
 	}
 	
 	@RequestMapping("newUser")
