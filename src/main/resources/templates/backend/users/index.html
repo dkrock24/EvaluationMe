@@ -173,11 +173,12 @@
 	                  <div class="panel widget bg-primary">
 	                     <div class="row row-table">
 	                        <div class="col-xs-4 text-center bg-primary-dark pv-lg">
-	                           <em class="icon-cloud-upload fa-3x"></em>
+	                           <em class="icon-user fa-3x"></em>
 	                        </div>
-	                        <div class="col-xs-8 pv-lg">
-	                           <div class="h2 mt0">1700</div>
-	                           <div class="text-uppercase">Uploads</div>
+	                        <div class="col-xs-8 pv-lg">	                           
+	                           <div class="text-uppercase">
+	                           	<a href="newUser" class="btn btn-default">Create New user</a>
+	                           </div>
 	                        </div>
 	                     </div>
 	                  </div>
@@ -255,7 +256,8 @@
 												<th>First Name</th>
 												<th>Last Name</th>
 												<th>Email</th>
-												<th>Passwd</th>
+												<th>Country</th>
+												<th>State</th>
 												<th>Status</th>
 												<th>Actions</th>
 		                                    </tr>
@@ -267,7 +269,8 @@
 													<td th:text="${ user.firstName }"></td>
 													<td th:text="${ user.lastName }"></td>
 													<td th:text="${ user.email }"></td>
-													<td th:text="${ user.password }"></td>
+													<td th:text="${ user.Country }"></td>
+													<td th:text="${ user.State }"></td>
 													<td th:switch="${ user.status }"><label th:case="1"
 														class="label label-success" style="color: white">Active</label>
 														<label th:case="2" class="label label-warning"

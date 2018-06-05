@@ -1,5 +1,6 @@
 package com.focus.levelup.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.management.relation.Role;
@@ -49,20 +50,25 @@ public class UsersController {
 		List<Roles> role = (List<Roles>) roleServices.findAll();
 		model.addAttribute("roles", role);
 			
-		return "users/newUser";
+		return "backend/users/newUser";
 	}
 	
 	@RequestMapping(value= "saveUser", method = RequestMethod.POST)
 	public ModelAndView saveUser(@ModelAttribute("Users") Users users, BindingResult result ) {
 		
+		Date d = new Date();
+
+
 		Users user =  new Users();
 		
-		user.setRole(users.getRole());		
+		user.setIdRole(users.getIdRole());
 		user.setFirstName(users.getFirstName());
 		user.setLastName(users.getLastName());
 		user.setEmail(users.getEmail());
 		user.setStatus(users.getStatus());
 		user.setPassword(encrypte.encode(users.getPassword()));
+		user.setAge(d);
+		user.setCreated(d);
 		
 		usersService.save( user );
 		
@@ -87,7 +93,8 @@ public class UsersController {
 		
 		Users user =  usersService.findOne(users.getIdUser());
 		
-		user.setRole(users.getRole());		
+
+		user.setIdRole(users.getIdRole());
 		user.setFirstName(users.getFirstName());
 		user.setLastName(users.getLastName());
 		user.setEmail(users.getEmail());

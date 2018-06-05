@@ -69,7 +69,7 @@ public class QuizzController {
 		
 		model.addAttribute("quizzes",quizzes);
 		
-		return "quizz/indexLanguages";
+		return "backend/quizz/indexLanguages";
 	}
 	
 	@RequestMapping("addLanguages")

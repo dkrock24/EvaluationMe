@@ -12,12 +12,12 @@
 		<class>com.focus.levelup.model.Questions</class>
 		<class>com.focus.levelup.model.QuizLevels</class>
 		<class>com.focus.levelup.model.Quizzes</class>
-		<class>com.focus.levelup.model.Roles</class>
 		<class>com.focus.levelup.model.Subscription</class>
 		<class>com.focus.levelup.model.TestResults</class>
 		<class>com.focus.levelup.model.Tests</class>
 		<class>com.focus.levelup.model.Topic</class>
 		<class>com.focus.levelup.model.UserCompany</class>
 		<class>com.focus.levelup.model.Users</class>
+		<class>com.focus.levelup.model.Roles</class>
 	</persistence-unit>
 </persistence>
