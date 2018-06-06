@@ -38,9 +38,7 @@ public class UsersController {
 	public String users(Model model) {
 		
 		List<User> user =  (List<User>) usersService.findAll();
-		
-		System.out.println(user);
-		
+				
 		model.addAttribute("users", user);
 		
 		return "backend/users/index";

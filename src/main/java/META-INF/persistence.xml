@@ -20,5 +20,6 @@
 		<class>com.focus.levelup.model.Topic</class>
 		<class>com.focus.levelup.model.UserCompany</class>
 		<class>com.focus.levelup.model.User</class>
+		<class>com.focus.levelup.model.CompanyUser</class>
 	</persistence-unit>
 </persistence>
