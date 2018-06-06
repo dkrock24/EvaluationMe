@@ -15,7 +15,7 @@ public class Company implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_company")
 	private int idCompany;
 
@@ -27,9 +27,9 @@ public class Company implements Serializable {
 
 	private String tel;
 
-	//bi-directional many-to-one association to QuizLevels
+	//bi-directional many-to-one association to QuizLevel
 	@OneToMany(mappedBy="company")
-	private List<QuizLevels> quizLevels;
+	private List<QuizLevel> quizLevels;
 
 	//bi-directional many-to-one association to UserCompany
 	@OneToMany(mappedBy="company")
@@ -78,26 +78,26 @@ public class Company implements Serializable {
 		this.tel = tel;
 	}
 
-	public List<QuizLevels> getQuizLevels() {
+	public List<QuizLevel> getQuizLevels() {
 		return this.quizLevels;
 	}
 
-	public void setQuizLevels(List<QuizLevels> quizLevels) {
+	public void setQuizLevels(List<QuizLevel> quizLevels) {
 		this.quizLevels = quizLevels;
 	}
 
-	public QuizLevels addQuizLevel(QuizLevels quizLevels) {
-		getQuizLevels().add(quizLevels);
-		quizLevels.setCompany(this);
+	public QuizLevel addQuizLevel(QuizLevel quizLevel) {
+		getQuizLevels().add(quizLevel);
+		quizLevel.setCompany(this);
 
-		return quizLevels;
+		return quizLevel;
 	}
 
-	public QuizLevels removeQuizLevel(QuizLevels quizLevels) {
-		getQuizLevels().remove(quizLevels);
-		quizLevels.setCompany(null);
+	public QuizLevel removeQuizLevel(QuizLevel quizLevel) {
+		getQuizLevels().remove(quizLevel);
+		quizLevel.setCompany(null);
 
-		return quizLevels;
+		return quizLevel;
 	}
 
 	public List<UserCompany> getUserCompanies() {

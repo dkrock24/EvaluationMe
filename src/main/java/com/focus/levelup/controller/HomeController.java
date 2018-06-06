@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.focus.levelup.model.Roles;
 import com.focus.levelup.services.RoleServices;
 
 @Controller
@@ -25,8 +24,8 @@ public class HomeController {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-	@Autowired
-	RoleServices roleServices;
+	///@Autowired
+	//RoleServices roleServices;
 
 	@RequestMapping(value={"/", "/login"} , method = RequestMethod.GET)
 	public ModelAndView home() {

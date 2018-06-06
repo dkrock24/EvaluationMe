@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import com.focus.levelup.model.QuestionTypes;
-import com.focus.levelup.model.QuizLevels;
-import com.focus.levelup.model.Users;
-
+import com.focus.levelup.model.QuizLevel;
+import com.focus.levelup.model.User;
 import com.focus.levelup.services.QuestionTypesService;
 import com.focus.levelup.services.QuizLevelsService;
 import com.focus.levelup.services.QuizzesServices;
@@ -40,7 +38,7 @@ public class QuestionType {
 	TestsService testServices;
 	
 	@Autowired
-	QuestionTypesService questionType;
+	QuestionTypesService questionTypeServices;
 
 	@RequestMapping("index")
 	public String index(Model model) {
@@ -61,7 +59,7 @@ public class QuestionType {
 	@RequestMapping("addQuestionType")
 	public String addQuestionType(Model model) {
 		
-		List<QuestionTypes> qt = (List<QuestionTypes>) questionType.findAll();
+		Iterable<com.focus.levelup.model.QuestionType> qt = questionTypeServices.findAll();
 		
 		model.addAttribute("qt",qt);
 		
@@ -84,14 +82,14 @@ public class QuestionType {
 	 * SAVE NEW PROGRAMMING LANGUAGES
 	 */
 	@RequestMapping("saveQestionType")
-	public ModelAndView saveQestionType(@ModelAttribute("QuestionTypes") QuestionTypes types, BindingResult result) {
+	public ModelAndView saveQestionType(@ModelAttribute("QuestionType") QuestionType types, BindingResult result) {
 		
-		QuestionTypes type = new QuestionTypes();
-		type.setType(types.getType());
-		type.setFriendlyName(types.getFriendlyName());
-		type.setStatus(types.getStatus());
-		
-		questionType.save(type);
+//		QuestionType type = new QuestionType();
+//		type.setType(types.getType());
+//		type.setFriendlyName(types.getFriendlyName());
+//		type.setStatus(types.getStatus());
+//		
+//		questionTypeServices.save(type);
 		
 		return new ModelAndView("redirect:/QuestionTypes/addQuestionType");
 	}	
@@ -102,12 +100,12 @@ public class QuestionType {
 	@RequestMapping(value ="editQuestionType/{id}", method= RequestMethod.GET)
 	public String editLevel(Model model,@PathVariable int id) {
 		
-		List<QuestionTypes> qt = (List<QuestionTypes>) questionType.findAll();			
-		QuestionTypes qt_edit = questionType.findOne(id);
-		
-		model.addAttribute("qt",qt);
-		model.addAttribute("inputs", qt_edit);
-		
+//		List<QuestionType> qt = (List<QuestionType>) questionType.findAll();			
+//		QuestionType qt_edit = questionType.findOne(id);
+//		
+//		model.addAttribute("qt",qt);
+//		model.addAttribute("inputs", qt_edit);
+//		
 		return ("questionType/editQuestionType");
 	}
 	
@@ -116,14 +114,14 @@ public class QuestionType {
 	 * UPDATE PROGRAMMING LANGUAGES
 	 */
 	@RequestMapping("updateQuestionType")
-	public ModelAndView updateQuestionType(@ModelAttribute("QuestionTypes") QuestionTypes types, BindingResult result) {
+	public ModelAndView updateQuestionType(@ModelAttribute("QuestionTypes") QuestionType types, BindingResult result) {
 		
-		QuestionTypes qt = questionType.findOne(types.getIdType());
-		qt.setType(types.getType());
-		qt.setFriendlyName(types.getFriendlyName());
-		qt.setStatus(types.getStatus());
-		
-		questionType.save(qt);		
+//		QuestionType qt = questionType.findOne(types.getIdType());
+//		qt.setType(types.getType());
+//		qt.setFriendlyName(types.getFriendlyName());
+//		qt.setStatus(types.getStatus());
+//		
+//		questionType.save(qt);		
 		
 		return new ModelAndView("redirect:/QuestionTypes/addQuestionType");
 	}	

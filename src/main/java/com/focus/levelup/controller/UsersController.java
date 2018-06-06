@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.focus.levelup.model.Roles;
-import com.focus.levelup.model.Users;
+import com.focus.levelup.model.User;
 import com.focus.levelup.services.RoleServices;
 import com.focus.levelup.services.UserService;
+
 
 @Controller
 @RequestMapping("Users")
@@ -37,7 +37,9 @@ public class UsersController {
 	@RequestMapping("index")
 	public String users(Model model) {
 		
-		List<Users> user =  (List<Users>) usersService.findAll();
+		List<User> user =  (List<User>) usersService.findAll();
+		
+		System.out.println(user);
 		
 		model.addAttribute("users", user);
 		
@@ -47,21 +49,21 @@ public class UsersController {
 	@RequestMapping("newUser")
 	public String newUser(Model model) {
 		
-		List<Roles> role = (List<Roles>) roleServices.findAll();
+		Iterable<com.focus.levelup.model.Role> role = roleServices.findAll();
 		model.addAttribute("roles", role);
 			
 		return "backend/users/newUser";
 	}
 	
 	@RequestMapping(value= "saveUser", method = RequestMethod.POST)
-	public ModelAndView saveUser(@ModelAttribute("Users") Users users, BindingResult result ) {
+	public ModelAndView saveUser(@ModelAttribute("Users") User users, BindingResult result ) {
 		
 		Date d = new Date();
 
 
-		Users user =  new Users();
+		User user =  new User();
 		
-		user.setIdRole(users.getIdRole());
+		user.setRole(users.getRole());
 		user.setFirstName(users.getFirstName());
 		user.setLastName(users.getLastName());
 		user.setEmail(users.getEmail());
@@ -78,9 +80,9 @@ public class UsersController {
 	@RequestMapping(value= "edit/{id}", method = RequestMethod.GET)
 	public String edit(Model model, @PathVariable int id) {
 		
-		Users user =  usersService.findOne(id);
+		User user =  usersService.findOne(id);
 		
-		List<Roles> role =  (List<Roles>) roleServices.findAll();
+		Iterable<com.focus.levelup.model.Role> role = roleServices.findAll();
 		
 		model.addAttribute("users", user);
 		model.addAttribute("roles", role);
@@ -89,12 +91,12 @@ public class UsersController {
 	}
 	
 	@RequestMapping(value= "saveUpdate", method = RequestMethod.POST)
-	public ModelAndView saveUpdate(@ModelAttribute("Users") Users users, BindingResult result ) {
+	public ModelAndView saveUpdate(@ModelAttribute("Users") User users, BindingResult result ) {
 		
-		Users user =  usersService.findOne(users.getIdUser());
+		User user =  usersService.findOne(users.getIdUser());
 		
 
-		user.setIdRole(users.getIdRole());
+		user.setRole(users.getRole());
 		user.setFirstName(users.getFirstName());
 		user.setLastName(users.getLastName());
 		user.setEmail(users.getEmail());

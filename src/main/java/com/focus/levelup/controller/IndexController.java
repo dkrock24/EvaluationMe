@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.focus.levelup.model.Roles;
+import com.focus.levelup.model.Role;
 import com.focus.levelup.services.RoleServices;
 
 @Controller
@@ -20,9 +20,9 @@ public class IndexController {
 	@RequestMapping("index")
 	public String demo(Model model) {
 		
-		List<Roles> role =  (List<Roles>) roleServices.findAll();
+		List<Role> role =  (List<Role>) roleServices.findAll();
 		
-		model.addAttribute("data", role);
+		//model.addAttribute("data", role);
 		return "backend/home/index";
 	}
 	

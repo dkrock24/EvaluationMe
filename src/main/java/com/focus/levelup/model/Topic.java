@@ -16,7 +16,7 @@ public class Topic implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_topic")
 	private int idTopic;
 
@@ -30,7 +30,7 @@ public class Topic implements Serializable {
 
 	//bi-directional many-to-one association to Quizze
 	@OneToMany(mappedBy="topic")
-	private List<Quizzes> quizzes;
+	private List<Quizze> quizzes;
 
 	//bi-directional many-to-one association to Category
 	@ManyToOne
@@ -80,22 +80,22 @@ public class Topic implements Serializable {
 		this.status = status;
 	}
 
-	public List<Quizzes> getQuizzes() {
+	public List<Quizze> getQuizzes() {
 		return this.quizzes;
 	}
 
-	public void setQuizzes(List<Quizzes> quizzes) {
+	public void setQuizzes(List<Quizze> quizzes) {
 		this.quizzes = quizzes;
 	}
 
-	public Quizzes addQuizze(Quizzes quizze) {
+	public Quizze addQuizze(Quizze quizze) {
 		getQuizzes().add(quizze);
 		quizze.setTopic(this);
 
 		return quizze;
 	}
 
-	public Quizzes removeQuizze(Quizzes quizze) {
+	public Quizze removeQuizze(Quizze quizze) {
 		getQuizzes().remove(quizze);
 		quizze.setTopic(null);
 

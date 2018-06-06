@@ -16,7 +16,7 @@ public class Subscription implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_userplan")
 	private int idUserplan;
 
@@ -40,10 +40,10 @@ public class Subscription implements Serializable {
 	@JoinColumn(name="id_plan")
 	private Plane plane;
 
-	//bi-directional many-to-one association to Users
+	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="id_user")
-	private Users users;
+	private User user;
 
 	public Subscription() {
 	}
@@ -118,12 +118,12 @@ public class Subscription implements Serializable {
 		this.plane = plane;
 	}
 
-	public Users getUser() {
-		return this.users;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setUser(Users users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

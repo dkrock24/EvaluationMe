@@ -269,8 +269,8 @@
 													<td th:text="${ user.firstName }"></td>
 													<td th:text="${ user.lastName }"></td>
 													<td th:text="${ user.email }"></td>
-													<td th:text="${ user.Country }"></td>
-													<td th:text="${ user.State }"></td>
+													<td th:text="${ user.stateBean.country.countryName }"></td>
+													<td th:text="${ user.stateBean.nameState }"></td>
 													<td th:switch="${ user.status }"><label th:case="1"
 														class="label label-success" style="color: white">Active</label>
 														<label th:case="2" class="label label-warning"

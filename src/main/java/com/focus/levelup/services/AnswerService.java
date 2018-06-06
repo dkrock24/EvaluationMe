@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.focus.levelup.model.Answers;
+import com.focus.levelup.model.Answer;
 
-public interface AnswerService extends CrudRepository<Answers, Integer> {
+public interface AnswerService extends CrudRepository<Answer, Integer> {
 
 //	@Query("SELECT a FROM Answers a ORDER BY a.idAnswer ASC")
 //	List<Answers> findAllOrderedByIdAsc();

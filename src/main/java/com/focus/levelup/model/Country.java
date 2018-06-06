@@ -2,6 +2,7 @@ package com.focus.levelup.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -14,7 +15,7 @@ public class Country implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_country")
 	private int idCountry;
 
@@ -22,6 +23,10 @@ public class Country implements Serializable {
 	private String countryName;
 
 	private int state;
+
+	//bi-directional many-to-one association to State
+	@OneToMany(mappedBy="country")
+	private List<State> states;
 
 	public Country() {
 	}
@@ -48,6 +53,28 @@ public class Country implements Serializable {
 
 	public void setState(int state) {
 		this.state = state;
+	}
+
+	public List<State> getStates() {
+		return this.states;
+	}
+
+	public void setStates(List<State> states) {
+		this.states = states;
+	}
+
+	public State addState(State state) {
+		getStates().add(state);
+		state.setCountry(this);
+
+		return state;
+	}
+
+	public State removeState(State state) {
+		getStates().remove(state);
+		state.setCountry(null);
+
+		return state;
 	}
 
 }

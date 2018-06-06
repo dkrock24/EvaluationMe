@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.focus.levelup.model.Answers;
+import com.focus.levelup.model.Answer;
 
-import com.focus.levelup.model.QuestionTypes;
-import com.focus.levelup.model.Questions;
-import com.focus.levelup.model.QuizLevels;
-import com.focus.levelup.model.Quizzes;
-import com.focus.levelup.model.Users;
+import com.focus.levelup.model.QuestionType;
+import com.focus.levelup.model.Question;
+import com.focus.levelup.model.QuizLevel;
+import com.focus.levelup.model.Quizze;
+import com.focus.levelup.model.User;
 import com.focus.levelup.services.AnswerService;
 import com.focus.levelup.services.QuestionTypesService;
 import com.focus.levelup.services.QuestionsService;
@@ -60,7 +60,7 @@ public class QuizzController {
 	@RequestMapping("index")
 	public String index(Model model) {
 		
-		List<Quizzes> quizzes = (List<Quizzes>) quizzesServices.findAll();
+		List<Quizze> quizzes = (List<Quizze>) quizzesServices.findAll();
 				
 		model.addAttribute("totalLanguages", totalProgramming());
 		model.addAttribute("totalLevels", totalLevels());
@@ -140,7 +140,7 @@ public class QuizzController {
 	@RequestMapping(value ="addQuizz")
 	public String addQuizz(Model model) {
 		
-		List<Quizzes> quizzes = (List<Quizzes>) quizzesServices.findAll();		
+		List<Quizze> quizzes = (List<Quizze>) quizzesServices.findAll();		
 						
 		model.addAttribute("totalLanguages", totalProgramming());
 		model.addAttribute("totalLevels", totalLevels());
@@ -160,11 +160,11 @@ public class QuizzController {
 	}
 	
 	@RequestMapping(value ="saveQuizz")
-	public ModelAndView saveQuizz(@ModelAttribute("Quizzes") Quizzes quizz, BindingResult result) {
+	public ModelAndView saveQuizz(@ModelAttribute("Quizzes") Quizze quizz, BindingResult result) {
 		
 		//Find user
-		Users user = userServices.findOne(2);
-		QuizLevels ql = QlevelServices.findOne(1);
+		User user = userServices.findOne(2);
+		QuizLevel ql = QlevelServices.findOne(1);
 		Date d = new Date();		
 		
 		//Create Instance of Quizz
@@ -192,15 +192,15 @@ public class QuizzController {
 	public String addQuestion(Model model,@PathVariable int idQuiz) {
 		
 		// GET Quizz
-		Quizzes quiz = quizzesServices.findOne(idQuiz);	
+		Quizze quiz = quizzesServices.findOne(idQuiz);	
 		model.addAttribute("quizz", quiz);
 		
 		// Return a list of questions
-		List<Questions> question = (List<Questions>) quiz.getQuestions();
+		List<Question> question = (List<Question>) quiz.getQuestions();
 		model.addAttribute("question",question);
 		
 		// Find Quizz
-		List<Quizzes> quizzes = (List<Quizzes>) quizzesServices.findAll();		
+		List<Quizze> quizzes = (List<Quizze>) quizzesServices.findAll();		
 			
 		model.addAttribute("quizzes",quizzes);
 				
@@ -210,21 +210,21 @@ public class QuizzController {
 		model.addAttribute("countPendingTest", totalPendingTest());	
 		
 		// Services		
-		List<QuestionTypes> questionTypes = (List<QuestionTypes>) questionTypeServices.findAllOrderedByIdAsc();
-		List<QuizLevels> ql = (List<QuizLevels>) QlevelServices.findAll();
+		//List<QuestionType> questionTypes = (List<QuestionType>) questionTypeServices.findAllOrderedByIdAsc();
+		//List<QuizLevel> ql = (List<QuizLevel>) QlevelServices.findAll();
 		
-		model.addAttribute("questionTypes", questionTypes);
-		model.addAttribute("ql",ql);
+		//model.addAttribute("questionTypes", questionTypes);
+		//model.addAttribute("ql",ql);
 		
 		return ("quizz/addQuestion");
 	}
 	
 	// Insert Questions of Quizzes
 	@RequestMapping(value ="saveQuestion")
-	public ModelAndView saveQuestion(@ModelAttribute("Questions") Questions question, BindingResult result) {
+	public ModelAndView saveQuestion(@ModelAttribute("Questions") Question question, BindingResult result) {
 				
 		Date d = new Date();		
-		Questions questions = new Questions();
+		Question questions = new Question();
 		
 		questions.setQuizze(question.getQuizze());
 		questions.setQuestionType(question.getQuestionType());			
@@ -243,9 +243,9 @@ public class QuizzController {
 	@RequestMapping(value ="editQuestion/{idQuestion}", method=RequestMethod.GET)
 	public String editQuestion(Model model, @PathVariable int idQuestion) {
 		
-		List<QuestionTypes> qt = (List<QuestionTypes>) questionTypeServices.findAll();
+		List<QuestionType> qt = (List<QuestionType>) questionTypeServices.findAll();
 		
-		Questions question = questionServices.findOne(idQuestion);
+		Question question = questionServices.findOne(idQuestion);
 		
 		model.addAttribute("question", question);
 		model.addAttribute("questionType", qt);
@@ -254,11 +254,11 @@ public class QuizzController {
 	}
 	
 	@RequestMapping("updateQuestion")
-	public ModelAndView updateQuestion(@ModelAttribute("Questions") Questions question, BindingResult result) {
+	public ModelAndView updateQuestion(@ModelAttribute("Questions") Question question, BindingResult result) {
 		
 		Date date = new Date();
 		
-		Questions questions = questionServices.findOne(question.getIdQuestions());
+		Question questions = questionServices.findOne(question.getIdQuestions());
 				
 		questions.setQuestion(question.getQuestion());
 		questions.setQuestionType(question.getQuestionType());
@@ -281,9 +281,9 @@ public class QuizzController {
 	@RequestMapping(value="addAnswer/{idQuestion}", method=RequestMethod.GET)
 	public String addAnsware(Model model, @PathVariable int idQuestion) {
 		
-		Questions question = questionServices.findOne(idQuestion);
+		Question question = questionServices.findOne(idQuestion);
 		
-		List<Answers> answers = question.getAnswers();		
+		List<Answer> answers = question.getAnswers();		
 		
 		model.addAttribute("question", question );
 		model.addAttribute("answer", answers );
@@ -293,10 +293,10 @@ public class QuizzController {
 	
 	// Save Answers
 	@RequestMapping(value="saveAnswer", method=RequestMethod.POST)
-	public ModelAndView saveAnswer(@ModelAttribute("Answers") Answers answer, BindingResult result) {
+	public ModelAndView saveAnswer(@ModelAttribute("Answers") Answer answer, BindingResult result) {
 		
 		Date date = new Date();
-		Answers answers = new Answers();
+		Answer answers = new Answer();
 		
 		answers.setQuestion(answer.getQuestion());
 		answers.setAnswer(answer.getAnswer());
@@ -317,12 +317,12 @@ public class QuizzController {
 	@RequestMapping(value="editAnswer/{idAnswer}", method=RequestMethod.GET)
 	public String editAnswer(Model model, @PathVariable int idAnswer) {
 		
-		Answers answer = answerServices.findOne(idAnswer);
+		Answer answer = answerServices.findOne(idAnswer);
 		model.addAttribute("answerOne", answer);
 		
-		Questions question = questionServices.findOne(answer.getQuestion().getIdQuestions());
+		Question question = questionServices.findOne(answer.getQuestion().getIdQuestions());
 		
-		List<Answers> answers = question.getAnswers();		
+		List<Answer> answers = question.getAnswers();		
 		
 		model.addAttribute("question", question );
 		model.addAttribute("answer", answers );
@@ -332,9 +332,9 @@ public class QuizzController {
 	
 	// 	Update Answers
 	@RequestMapping(value="updateAnswer", method=RequestMethod.POST)
-	public ModelAndView updateAnswer(Model model, @ModelAttribute("Answers") Answers answer, BindingResult result) {
+	public ModelAndView updateAnswer(Model model, @ModelAttribute("Answers") Answer answer, BindingResult result) {
 		
-		Answers answers = answerServices.findOne(answer.getIdAnswer());
+		Answer answers = answerServices.findOne(answer.getIdAnswer());
 		
 		Date date = new Date();
 		
@@ -351,7 +351,7 @@ public class QuizzController {
 	@RequestMapping(value = "deleteAnswer/{id}", method = RequestMethod.GET )
 	public ModelAndView deleteAnswer(@PathVariable int id ) {
 		
-		Answers answer = answerServices.findOne(id);
+		Answer answer = answerServices.findOne(id);
 		
 		answerServices.delete(answer.getIdAnswer());		
 		
@@ -378,10 +378,10 @@ public class QuizzController {
 	}
 	
 	@RequestMapping(value ="updateQuizz")
-	public ModelAndView updateQuizz(@ModelAttribute("Quizzes") Quizzes quizz, BindingResult result) {
+	public ModelAndView updateQuizz(@ModelAttribute("Quizzes") Quizze quizz, BindingResult result) {
 		
 		//Find Quizz
-		Quizzes quizzes = quizzesServices.findOne(quizz.getIdQuiz());
+		Quizze quizzes = quizzesServices.findOne(quizz.getIdQuiz());
 		
 		Date d = new Date();		
 		

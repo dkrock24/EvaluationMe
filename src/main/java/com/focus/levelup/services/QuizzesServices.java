@@ -6,13 +6,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.focus.levelup.model.Quizzes;
+import com.focus.levelup.model.Quizze;
 
-public interface QuizzesServices extends CrudRepository<Quizzes, Integer> {
+public interface QuizzesServices extends CrudRepository<Quizze, Integer> {
 
 //	// Get all quizzes ascending ordered
-//	@Query("SELECT q FROM Quizzes q ORDER BY q.idQuiz ASC")
-//	List<Quizzes> findAllOrderedByIdAsc();
+	//@Query("SELECT q FROM Quizzes q ORDER BY q.idQuiz ASC")
+	//List<Quizze> findAllOrderedByIdAsc();
 //
 //	// Get all quizzes descending ordered
 //	@Query("SELECT q FROM Quizzes q ORDER BY q.idQuiz DESC")

@@ -11,12 +11,12 @@ import java.util.List;
  */
 @Entity
 @Table(name="question_types")
-@NamedQuery(name="QuestionTypes.findAll", query="SELECT q FROM QuestionTypes q")
-public class QuestionTypes implements Serializable {
+@NamedQuery(name="QuestionType.findAll", query="SELECT q FROM QuestionType q")
+public class QuestionType implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_type")
 	private int idType;
 
@@ -29,11 +29,11 @@ public class QuestionTypes implements Serializable {
 
 	private String type;
 
-	//bi-directional many-to-one association to Questions
-	@OneToMany(mappedBy="questionTypes")
-	private List<Questions> questions;
+	//bi-directional many-to-one association to Question
+	@OneToMany(mappedBy="questionType")
+	private List<Question> questions;
 
-	public QuestionTypes() {
+	public QuestionType() {
 	}
 
 	public int getIdType() {
@@ -76,26 +76,26 @@ public class QuestionTypes implements Serializable {
 		this.type = type;
 	}
 
-	public List<Questions> getQuestions() {
+	public List<Question> getQuestions() {
 		return this.questions;
 	}
 
-	public void setQuestions(List<Questions> questions) {
+	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 
-	public Questions addQuestion(Questions questions) {
-		getQuestions().add(questions);
-		questions.setQuestionType(this);
+	public Question addQuestion(Question question) {
+		getQuestions().add(question);
+		question.setQuestionType(this);
 
-		return questions;
+		return question;
 	}
 
-	public Questions removeQuestion(Questions questions) {
-		getQuestions().remove(questions);
-		questions.setQuestionType(null);
+	public Question removeQuestion(Question question) {
+		getQuestions().remove(question);
+		question.setQuestionType(null);
 
-		return questions;
+		return question;
 	}
 
 }

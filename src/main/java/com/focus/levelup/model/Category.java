@@ -16,7 +16,7 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_category")
 	private int idCategory;
 
@@ -29,10 +29,10 @@ public class Category implements Serializable {
 
 	private int state;
 
-	//bi-directional many-to-one association to Users
+	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="id_user")
-	private Users users;
+	private User user;
 
 	//bi-directional many-to-one association to Topic
 	@OneToMany(mappedBy="category")
@@ -81,12 +81,12 @@ public class Category implements Serializable {
 		this.state = state;
 	}
 
-	public Users getUser() {
-		return this.users;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setUser(Users users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public List<Topic> getTopics() {

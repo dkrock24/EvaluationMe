@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.focus.levelup.model.Roles;
+import com.focus.levelup.model.Role;
 //import com.focus.levelup.model.Statuses;
 import com.focus.levelup.services.RoleServices;
 
@@ -26,7 +26,7 @@ public class RolesController {
 	@RequestMapping("index")
 	public String roles(Model model) {
 		
-		List<Roles> role =  (List<Roles>) roleServices.findAllByStatus(1);
+		List<Role> role =  (List<Role>) roleServices.findAll();
 		
 		model.addAttribute("data", role);
 		
@@ -36,7 +36,7 @@ public class RolesController {
 	@RequestMapping(value= "edit/{id}", method = RequestMethod.GET)
 	public String edit(Model model, @PathVariable int id) {
 		
-		Roles role =  roleServices.findOne(id);		
+		Role role =  roleServices.findOne(id);		
 		model.addAttribute("data", role);
 		
 		return "roles/update";
@@ -49,9 +49,9 @@ public class RolesController {
 	}
 	
 	@RequestMapping(value= "saveRole", method = RequestMethod.POST)
-	public ModelAndView saveRole(Model model, @ModelAttribute("Roles") Roles role, BindingResult result) {
+	public ModelAndView saveRole(Model model, @ModelAttribute("Roles") Role role, BindingResult result) {
 		
-		Roles roles =  new Roles();	
+		Role roles =  new Role();	
 		
 		roles.setRole(role.getRole());
 		roles.setStatus(1);;
@@ -62,9 +62,9 @@ public class RolesController {
 	}
 	
 	@RequestMapping(value= "saveUpdate", method = RequestMethod.POST)
-	public ModelAndView saveUpdate(Model model, @ModelAttribute("Roles") Roles role, BindingResult result) {
+	public ModelAndView saveUpdate(Model model, @ModelAttribute("Roles") Role role, BindingResult result) {
 		
-		Roles roles =  roleServices.findOne(role.getIdRole());
+		Role roles =  roleServices.findOne(role.getIdRole());
 		roles.setRole(role.getRole());
 		roleServices.save(roles);
 		

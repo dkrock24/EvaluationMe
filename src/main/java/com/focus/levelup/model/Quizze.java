@@ -12,12 +12,12 @@ import java.util.List;
  */
 @Entity
 @Table(name="quizzes")
-@NamedQuery(name="Quizze.findAll", query="SELECT q FROM Quizzes q")
-public class Quizzes implements Serializable {
+@NamedQuery(name="Quizze.findAll", query="SELECT q FROM Quizze q")
+public class Quizze implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_quiz")
 	private int idQuiz;
 
@@ -36,30 +36,30 @@ public class Quizzes implements Serializable {
 	@Column(name="updated_on")
 	private Date updatedOn;
 
-	//bi-directional many-to-one association to Questions
+	//bi-directional many-to-one association to Question
 	@OneToMany(mappedBy="quizze")
-	private List<Questions> questions;
+	private List<Question> questions;
 
-	//bi-directional many-to-one association to QuizLevels
+	//bi-directional many-to-one association to QuizLevel
 	@ManyToOne
 	@JoinColumn(name="id_level")
-	private QuizLevels quizLevels;
+	private QuizLevel quizLevel;
 
 	//bi-directional many-to-one association to Topic
 	@ManyToOne
 	@JoinColumn(name="id_topic")
 	private Topic topic;
 
-	//bi-directional many-to-one association to Users
+	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="id_amin")
-	private Users users;
+	private User user;
 
-	//bi-directional many-to-one association to Tests
+	//bi-directional many-to-one association to Test
 	@OneToMany(mappedBy="quizze")
-	private List<Tests> tests;
+	private List<Test> tests;
 
-	public Quizzes() {
+	public Quizze() {
 	}
 
 	public int getIdQuiz() {
@@ -110,34 +110,34 @@ public class Quizzes implements Serializable {
 		this.updatedOn = updatedOn;
 	}
 
-	public List<Questions> getQuestions() {
+	public List<Question> getQuestions() {
 		return this.questions;
 	}
 
-	public void setQuestions(List<Questions> questions) {
+	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 
-	public Questions addQuestion(Questions questions) {
-		getQuestions().add(questions);
-		questions.setQuizze(this);
+	public Question addQuestion(Question question) {
+		getQuestions().add(question);
+		question.setQuizze(this);
 
-		return questions;
+		return question;
 	}
 
-	public Questions removeQuestion(Questions questions) {
-		getQuestions().remove(questions);
-		questions.setQuizze(null);
+	public Question removeQuestion(Question question) {
+		getQuestions().remove(question);
+		question.setQuizze(null);
 
-		return questions;
+		return question;
 	}
 
-	public QuizLevels getQuizLevel() {
-		return this.quizLevels;
+	public QuizLevel getQuizLevel() {
+		return this.quizLevel;
 	}
 
-	public void setQuizLevel(QuizLevels quizLevels) {
-		this.quizLevels = quizLevels;
+	public void setQuizLevel(QuizLevel quizLevel) {
+		this.quizLevel = quizLevel;
 	}
 
 	public Topic getTopic() {
@@ -148,34 +148,34 @@ public class Quizzes implements Serializable {
 		this.topic = topic;
 	}
 
-	public Users getUser() {
-		return this.users;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setUser(Users users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public List<Tests> getTests() {
+	public List<Test> getTests() {
 		return this.tests;
 	}
 
-	public void setTests(List<Tests> tests) {
+	public void setTests(List<Test> tests) {
 		this.tests = tests;
 	}
 
-	public Tests addTest(Tests tests) {
-		getTests().add(tests);
-		tests.setQuizze(this);
+	public Test addTest(Test test) {
+		getTests().add(test);
+		test.setQuizze(this);
 
-		return tests;
+		return test;
 	}
 
-	public Tests removeTest(Tests tests) {
-		getTests().remove(tests);
-		tests.setQuizze(null);
+	public Test removeTest(Test test) {
+		getTests().remove(test);
+		test.setQuizze(null);
 
-		return tests;
+		return test;
 	}
 
 }

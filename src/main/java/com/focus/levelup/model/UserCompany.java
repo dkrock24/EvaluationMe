@@ -16,7 +16,7 @@ public class UserCompany implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_user_company")
 	private int idUserCompany;
 
@@ -28,10 +28,10 @@ public class UserCompany implements Serializable {
 	@JoinColumn(name="id_company")
 	private Company company;
 
-	//bi-directional many-to-one association to Users
+	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="id_user")
-	private Users users;
+	private User user;
 
 	public UserCompany() {
 	}
@@ -60,12 +60,12 @@ public class UserCompany implements Serializable {
 		this.company = company;
 	}
 
-	public Users getUser() {
-		return this.users;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setUser(Users users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

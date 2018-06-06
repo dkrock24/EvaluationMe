@@ -12,12 +12,12 @@ import java.util.List;
  */
 @Entity
 @Table(name="quiz_levels")
-@NamedQuery(name="QuizLevels.findAll", query="SELECT q FROM QuizLevels q")
-public class QuizLevels implements Serializable {
+@NamedQuery(name="QuizLevel.findAll", query="SELECT q FROM QuizLevel q")
+public class QuizLevel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_level")
 	private int idLevel;
 
@@ -33,10 +33,10 @@ public class QuizLevels implements Serializable {
 	private Company company;
 
 	//bi-directional many-to-one association to Quizze
-	@OneToMany(mappedBy="quizLevels")
-	private List<Quizzes> quizzes;
+	@OneToMany(mappedBy="quizLevel")
+	private List<Quizze> quizzes;
 
-	public QuizLevels() {
+	public QuizLevel() {
 	}
 
 	public int getIdLevel() {
@@ -79,22 +79,22 @@ public class QuizLevels implements Serializable {
 		this.company = company;
 	}
 
-	public List<Quizzes> getQuizzes() {
+	public List<Quizze> getQuizzes() {
 		return this.quizzes;
 	}
 
-	public void setQuizzes(List<Quizzes> quizzes) {
+	public void setQuizzes(List<Quizze> quizzes) {
 		this.quizzes = quizzes;
 	}
 
-	public Quizzes addQuizze(Quizzes quizze) {
+	public Quizze addQuizze(Quizze quizze) {
 		getQuizzes().add(quizze);
 		quizze.setQuizLevel(this);
 
 		return quizze;
 	}
 
-	public Quizzes removeQuizze(Quizzes quizze) {
+	public Quizze removeQuizze(Quizze quizze) {
 		getQuizzes().remove(quizze);
 		quizze.setQuizLevel(null);
 

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import com.focus.levelup.model.QuizLevels;
-import com.focus.levelup.model.Users;
+import com.focus.levelup.model.QuizLevel;
+import com.focus.levelup.model.User;
 
 import com.focus.levelup.services.QuizLevelsService;
 import com.focus.levelup.services.QuizzesServices;
@@ -54,7 +54,7 @@ public class LevelController {
 	@RequestMapping("addLevel")
 	public String addLanguages(Model model) {
 		
-		List<QuizLevels> ql = (List<QuizLevels>) QlevelServices.findAll();
+		List<QuizLevel> ql = (List<QuizLevel>) QlevelServices.findAll();
 		
 		model.addAttribute("ql",ql);
 		
@@ -70,9 +70,9 @@ public class LevelController {
 	 * SAVE NEW PROGRAMMING LANGUAGES
 	 */
 	@RequestMapping("saveLevel")
-	public ModelAndView saveLevel(@ModelAttribute("QuizLevels") QuizLevels level, BindingResult result) {
+	public ModelAndView saveLevel(@ModelAttribute("QuizLevels") QuizLevel level, BindingResult result) {
 		
-		QuizLevels ql = new QuizLevels();
+		QuizLevel ql = new QuizLevel();
 		ql.setLevel(level.getLevel());
 		ql.setStatus(level.getStatus());
 		
@@ -87,8 +87,8 @@ public class LevelController {
 	@RequestMapping(value ="editLevel/{id}", method= RequestMethod.GET)
 	public String editLevel(Model model,@PathVariable int id) {
 		
-		List<QuizLevels> ql = (List<QuizLevels>) QlevelServices.findAll();			
-		QuizLevels ql_edit = QlevelServices.findOne(id);
+		List<QuizLevel> ql = (List<QuizLevel>) QlevelServices.findAll();			
+		QuizLevel ql_edit = QlevelServices.findOne(id);
 		
 		model.addAttribute("ql",ql);
 		model.addAttribute("level", ql_edit);
@@ -101,9 +101,9 @@ public class LevelController {
 	 * UPDATE PROGRAMMING LANGUAGES
 	 */
 	@RequestMapping("updateLevel")
-	public ModelAndView updateLevel(@ModelAttribute("QuizLevels") QuizLevels level, BindingResult result) {
+	public ModelAndView updateLevel(@ModelAttribute("QuizLevels") QuizLevel level, BindingResult result) {
 		
-		QuizLevels ql = QlevelServices.findOne(level.getIdLevel());
+		QuizLevel ql = QlevelServices.findOne(level.getIdLevel());
 		ql.setLevel(level.getLevel());
 		ql.setStatus(level.getStatus());
 		

@@ -12,12 +12,12 @@ import java.util.List;
  */
 @Entity
 @Table(name="tests")
-@NamedQuery(name="Tests.findAll", query="SELECT t FROM Tests t")
-public class Tests implements Serializable {
+@NamedQuery(name="Test.findAll", query="SELECT t FROM Test t")
+public class Test implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_test")
 	private int idTest;
 
@@ -35,21 +35,21 @@ public class Tests implements Serializable {
 
 	private int status;
 
-	//bi-directional many-to-one association to TestResults
-	@OneToMany(mappedBy="tests")
-	private List<TestResults> testResults;
+	//bi-directional many-to-one association to TestResult
+	@OneToMany(mappedBy="test")
+	private List<TestResult> testResults;
 
 	//bi-directional many-to-one association to Quizze
 	@ManyToOne
 	@JoinColumn(name="id_quiz")
-	private Quizzes quizze;
+	private Quizze quizze;
 
-	//bi-directional many-to-one association to Users
+	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="id_user")
-	private Users users;
+	private User user;
 
-	public Tests() {
+	public Test() {
 	}
 
 	public int getIdTest() {
@@ -92,42 +92,42 @@ public class Tests implements Serializable {
 		this.status = status;
 	}
 
-	public List<TestResults> getTestResults() {
+	public List<TestResult> getTestResults() {
 		return this.testResults;
 	}
 
-	public void setTestResults(List<TestResults> testResults) {
+	public void setTestResults(List<TestResult> testResults) {
 		this.testResults = testResults;
 	}
 
-	public TestResults addTestResult(TestResults testResults) {
-		getTestResults().add(testResults);
-		testResults.setTest(this);
+	public TestResult addTestResult(TestResult testResult) {
+		getTestResults().add(testResult);
+		testResult.setTest(this);
 
-		return testResults;
+		return testResult;
 	}
 
-	public TestResults removeTestResult(TestResults testResults) {
-		getTestResults().remove(testResults);
-		testResults.setTest(null);
+	public TestResult removeTestResult(TestResult testResult) {
+		getTestResults().remove(testResult);
+		testResult.setTest(null);
 
-		return testResults;
+		return testResult;
 	}
 
-	public Quizzes getQuizze() {
+	public Quizze getQuizze() {
 		return this.quizze;
 	}
 
-	public void setQuizze(Quizzes quizze) {
+	public void setQuizze(Quizze quizze) {
 		this.quizze = quizze;
 	}
 
-	public Users getUser() {
-		return this.users;
+	public User getUser() {
+		return this.user;
 	}
 
-	public void setUser(Users users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

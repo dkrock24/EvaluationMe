@@ -6,16 +6,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.focus.levelup.model.QuizLevels;
+import com.focus.levelup.model.QuizLevel;
 
-public interface QuizLevelsService extends CrudRepository<QuizLevels, Integer> {
+public interface QuizLevelsService extends CrudRepository<QuizLevel, Integer> {
 
-	@Query("SELECT q FROM QuizLevels q ORDER BY q.idLevel ASC")
-	List<QuizLevels> findAllOrderedByIdAsc();
+	//@Query("SELECT q FROM QuizLevels q ORDER BY q.idLevel ASC")
+	//List<QuizLevel> findAllOrderedByIdAsc();
 
-	@Query("SELECT q FROM QuizLevels q ORDER BY q.idLevel DESC")
-	List<QuizLevels> findAllOrderedByIdDesc();
+	//@Query("SELECT q FROM QuizLevels q ORDER BY q.idLevel DESC")
+	//List<QuizLevel> findAllOrderedByIdDesc();
 
-	@Query("SELECT q FROM QuizLevels q WHERE q.status = :status")
-	List<QuizLevels> findAllByStatus(@Param("status") int status);
+	//@Query("SELECT q FROM QuizLevels q WHERE q.status = :status")
+	//List<QuizLevel> findAllByStatus(@Param("status") int status);
 }

@@ -16,7 +16,7 @@ public class Plane implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_plan")
 	private int idPlan;
 
@@ -25,7 +25,7 @@ public class Plane implements Serializable {
 
 	private String name;
 
-	private double price;
+	private float price;
 
 	private int state;
 
@@ -64,11 +64,11 @@ public class Plane implements Serializable {
 		this.name = name;
 	}
 
-	public double getPrice() {
+	public float getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 

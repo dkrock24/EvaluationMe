@@ -6,16 +6,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.focus.levelup.model.QuestionTypes;
+import com.focus.levelup.model.QuestionType;
 
-public interface QuestionTypesService extends CrudRepository<QuestionTypes, Integer> {
+public interface QuestionTypesService extends CrudRepository<QuestionType, Integer> {
 
-	@Query("SELECT q FROM QuestionTypes q ORDER BY q.idType ASC")
-	List<QuestionTypes> findAllOrderedByIdAsc();
-
-	@Query("SELECT q FROM QuestionTypes q ORDER BY q.idType DESC")
-	List<QuestionTypes> findAllOrderedByIdDesc();
-
-	@Query("SELECT q FROM QuestionTypes q WHERE q.status = :status")
-	List<QuestionTypes> findAllByStatus(@Param("status") int status);
+//	@Query("SELECT q FROM QuestionTypes q ORDER BY q.idType ASC")
+//	List<QuestionType> findAllOrderedByIdAsc();
+////
+//	@Query("SELECT q FROM QuestionTypes q ORDER BY q.idType DESC")
+//	List<QuestionType> findAllOrderedByIdDesc();
+//
+//	@Query("SELECT q FROM QuestionTypes q WHERE q.status = :status")
+//	List<QuestionType> findAllByStatus(@Param("status") int status);
 }
