@@ -30,6 +30,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authoritiesByUsernameQuery("SELECT u.email, r.role FROM users u JOIN roles r ON (u.id_role = r.id_role) WHERE u.status = 1 AND u.email=?")
             .usersByUsernameQuery("SELECT u.email, u.password, u.status FROM users u where u.email=?")
             .passwordEncoder(bCryptPasswordEncoder);
+        
+        auth
+		.inMemoryAuthentication()
+			.withUser("user").password("password").roles("USER");
     }
 
 	@Bean
