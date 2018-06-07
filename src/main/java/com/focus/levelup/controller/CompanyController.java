@@ -2,11 +2,13 @@ package com.focus.levelup.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -61,10 +63,40 @@ public class CompanyController {
 		cu.setCompany( company.getIdCompany() );
 		cu.setUser( 2 );
 		
-		companyUserService.save(cu);
+		companyUserService.save(cu);		
+
+		return new ModelAndView("redirect:/Company/index");
+	}
+	
+	@RequestMapping("edit/{id}")
+	public String update( Model model, @PathVariable int id ) {
 		
+		Company company = (Company) companyServices.findOne( id );				
+		model.addAttribute("company", company);		
 		
+		return "backend/company/update";
+	}
+	
+	
+	@RequestMapping("updateCompany")
+	public ModelAndView updateCompany( @ModelAttribute("Company") Company comp, BindingResult result ) {
 		
+				
+		Company company = companyServices.findOne( comp.getIdCompany() );
+		
+		Country country =  countryService.findOne( comp.getCountry() );
+		
+		company.setName( comp.getName() );
+		company.setTel( comp.getTel() );
+		company.setDescription( comp.getDescription() );
+		company.setEmail( comp.getEmail() );
+		company.setState( comp.getState() );
+		company.setCountry( country.getIdCountry() );
+		company.setStatus( 1 );		
+		
+		companyServices.save(company);
+		
+
 		return new ModelAndView("redirect:/Company/index");
 	}
 }

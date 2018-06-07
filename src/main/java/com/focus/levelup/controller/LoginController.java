@@ -3,6 +3,8 @@ package com.focus.levelup.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,23 @@ public class LoginController {
 	
 	@Autowired
 	LoginService loginService;
+	
+	@RequestMapping("aqui")
+	public String loginPage() {
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if(auth.getPrincipal().equals("anonymousUser")) {
+			
+			System.out.println( auth.getPrincipal() );
+			
+			User user = (User)auth.getPrincipal();
+			
+			System.out.println("Username:"+ user.getIdUser() );
+			return "/home";
+		}
+		
+		return "backend/login/login";
+	}
 
 	@RequestMapping("index")
 	public String login() {		
@@ -47,4 +66,13 @@ public class LoginController {
 		return new ModelAndView(pagina);
 		
 	}
+	
+	@RequestMapping("logout")
+	public String logout() {
+		
+		return "backend/login/Login";
+		
+	}
+	
+	
 }
