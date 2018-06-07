@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<footer th:fragment="footer" class="footer">
+	<div class="container">
+		<div class="row header">
+			<aside class="col-sm-6 col-xs-12">
+				<div class=" col-sm-6 col-xs-12 sitemap">
+					<h5 class="white">About Us</h5>
+					<ul class="list-group">
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Terms y Conditions</a></li>
+						<li><a href="#">Acceptable Use Policy</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Sitemap</a></li>
+						<li><a href="#">Why Choose Us</a></li>
+						<li><a href="#">Data Centres y Network</a></li>
+					</ul>
+					<h5 class="white">Legals</h5>
+					<ul class="list-group">
+						<li><a>Terms y Conditions</a></li>
+						<li><a href="#">Service Level Agreement</a></li>
+					</ul>
+				</div>
+				<div class=" col-sm-6 col-xs-12 sitemap">
+					<h5 class="white">Recent Tweets</h5>
+					<p>
+						<a href="#">@IAlmgren @JKTFreelancer</a><br /> We can assist with
+						any theme related questions at our support center<br /> <a
+							href="#">http://t.co/iLQC6XuOAZ 22 hours ago</a>
+					</p>
+					<p>
+						<a href="#">@IAlmgren @JKTFreelancer</a><br /> We can assist with
+						any theme related questions at our support center<br /> <a
+							href="#">http://t.co/iLQC6XuOAZ 22 hours ago</a>
+					</p>
+				</div>
+			</aside>
+			<aside class="col-sm-5 contact-form col-xs-12 pull-right">
+				<div id="message"></div>
+				<form id="contact" action="contact.php" name="contactform"
+					method="post">
+					<ul class="list-group">
+						<li class="fname"><input name="name" id="name" type="text"
+							placeholder="Name:" /></li>
+						<li class="lname"><input name="email" id="email" type="text"
+							placeholder="E-mail:" /></li>
+						<li><input name="phone" id="phone" type="text"
+							placeholder="Phone:" /></li>
+						<li><textarea name="comments" id="comments" cols="5" rows="5"
+								placeholder="Message:"></textarea></li>
+					</ul>
+					<button type="submit" id="submit"
+						class="btn btn-primary pull-right">Submit Now</button>
+				</form>
+				<p>Contact Us, we will give you the answer you expect
+					immediately.</p>
+			</aside>
+			<div class="col-xs-12 copyright-text">
+				Copyright © 2014 - All right reserved. Designed by Designing Media<br />
+				Preferred Hosting Partner - <a href="#">MissHosting.com</a>, Web
+				Hosting at 1.00€ per month!
+			</div>
+			<!--row-->
+		</div>
+		<a class="dmtop" href="#page-top"></a>
+		<!--container-->
+	</div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script th:src="@{ /assets/landing/js/jquery.min.js }"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script th:src="@{ /assets/landing/js/bootstrap/bootstrap.min.js }"></script>
+	<!--Jquery Easing-->
+	<script th:src="@{/assets/landing/js/jquery.easing.min.js}"></script>
+	<!-- Owl Carousel -->
+	<script type="text/javascript"
+		th:src="@{/assets/landing/owl-carousel/js/owl.carousel.js}"></script>
+	<!-- Popup Scripts -->
+	<script th:src="@{/assets/landing/js/jquery.prettyPhoto.js}"></script>
+	<!-- Contact Form Scripts -->
+	<script th:src="@{/assets/landing/js/jquery.jigowatt.js}"></script>
+	<!-- Custom -->
+	<script type="text/javascript" th:src="@{/assets/landing/js/custom.js}"></script>
+	<!-- Counter Scripts -->
+	<script type="text/javascript"
+		th:src="@{ /assets/landing/js/countdown.js}"></script>
+</footer>
+
+
+
+</html>

@@ -1,0 +1,274 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/lan/header :: header"></head>
+
+<body id="page-top">
+	<div id="loader"></div>
+	<div id="section-home">
+
+		<header id="header" th:replace="fragments/lan/menu :: header"></header>
+		
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript">
+$(document).ready(function() {
+    $("#locales").change(function () {    	
+        var selectedOption = $('#locales').val();
+        if (selectedOption != ''){
+            window.location.replace('pricing?lang=' + selectedOption);
+        }
+    });
+});
+</script>
+
+
+		<!-- BANNER STARTS
+    ========================================================================= -->
+		<aside class="col-xs-12 subbanner">
+			<h1 th:text="#{pricing.title}"></h1>
+			<p></p>
+		</aside>
+		<!-- /. BANNER ENDS
+    ========================================================================= -->
+		<div class="clearfix"></div>
+		<!--section-home-->
+	</div>
+	<!-- PLANS PRICING STARTS
+========================================================================= -->
+	<div class="grey-color">
+		<div class="container padding-box" id="pricing">
+			<div class="row header">
+
+				<article class="col-xs-12 textbox plan-pricing text-center">
+					<h2 class="black" th:text="#{pricing.description}"></h2>
+					<aside class="col-xs-12 col-sm-4">
+						<div class="col-sm-12 plan-detail">
+							<ul class="list-group">
+								<li th:text="#{title.users}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.dashboard}"><a
+									class="toll-tip fa fa-info-circle" href="#"
+									data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.reports}"><a
+									class="toll-tip fa fa-info-circle" href="#"
+									data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.quizzes}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.survies}"><a
+									class="toll-tip fa fa-info-circle" href="#"
+									data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.notification}"><a
+									class="toll-tip fa fa-info-circle" href="#"
+									data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.email}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.setting}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+								<li th:text="#{title.room}"><a class="toll-tip fa fa-info-circle"
+									href="#" data-toggle="tooltip" data-placement="left"
+									title="Tooltip on left"></a></li>
+							</ul>
+						</div>
+					</aside>
+					
+					<aside class="col-xs-12 col-sm-2" th:each="price: ${ pricing }">
+						<div class="col-sm-12 plan1">
+							<h3 th:text="${ price.name }"></h3>
+							<div class="pakage_price">
+								<span class="doller">$</span><span class="numeric" th:text="${ price.price }"></span>/mo
+							</div>
+							
+							<ul th:each="detail : ${ pricingDetail }" th:object="${detail}" th:if="${price.idPlan} == *{detail.plane.idPlan }">
+								
+									<li th:text="${detail.itemDetail}"></li>
+															
+							</ul>
+							
+							<button aria-expanded="false" class="btn btn-primary btn-lg"
+								type="button" th:text="#{ pricing.ordernow }"></button>
+						</div>
+					</aside>
+					<!-- 
+					<aside class="col-xs-12 col-sm-2">
+						<div class="col-sm-12 plan1">
+							<h3 th:text="#{ title.platinum }"></h3>
+							<div class="pakage_price">
+								<span class="doller">$</span><span class="numeric">15</span><span
+									class="blue">.00</span>/mo
+							</div>
+							<ul>
+								<li>Lorem ipsum</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Molestie lacus denean</li>
+								<li>Hendrerit mauris</li>
+								<li>Lorem ipsum dolor sit amet</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Vestibulum</li>
+								<li>Nonummy hendrerit</li>
+							</ul>
+							<button aria-expanded="false" class="btn btn-primary btn-lg"
+								type="button">Order Now</button>
+						</div>
+					</aside>
+					<aside class="col-xs-12 col-sm-2">
+						<div class="col-sm-12 plan1">
+							<h3 th:text="#{ title.gold }"></h3>
+							<div class="pakage_price">
+								<span class="doller">$</span><span class="numeric">25</span><span
+									class="blue">.00</span>/mo
+							</div>
+							<ul>
+								<li>Dolor sit amet</li>
+								<li>Consuer adipiscing</li>
+								<li>Vestibulum molestie</li>
+								<li>Nonummy hendrerit mauris</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Vestibulum molestie</li>
+								<li>Nonummy hendrerit</li>
+								<li>Nonummy hendrerit</li>
+							</ul>
+							<button aria-expanded="false" class="btn btn-primary btn-lg"
+								type="button">Order Now</button>
+						</div>
+					</aside>
+					<aside class="col-xs-12 col-sm-2">
+						<div class="col-sm-12 plan1">
+							<h3 th:text="#{ title.plus }"></h3>
+							<div class="pakage_price">
+								<span class="doller">$</span><span class="numeric">50</span><span
+									class="blue">.00</span>/mo
+							</div>
+							<ul>
+								<li>Lorem ipsum</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Molestie lacus denean</li>
+								<li>Hendrerit mauris</li>
+								<li>Lorem ipsum dolor sit amet</li>
+								<li>Adipiscing elit praesent</li>
+								<li>Vestibulum</li>
+								<li>Nonummy hendrerit</li>
+							</ul>
+							<button aria-expanded="false" class="btn btn-primary btn-lg"
+								type="button">Order Now</button>
+						</div>
+					</aside>
+					-->
+				</article>
+					 
+			</div>
+			<!--container-->
+		</div>
+	</div>
+	<!-- PLANS PRICING END
+========================================================================= -->
+	<!-- WHY CHOOSE US STARTS
+========================================================================= -->
+	<div class="blue-color padding-box">
+		<div class="container">
+			<div class="row header">
+				<article class="col-xs-12 textbox text-center">
+					<h2 class="white white_circle" th:text="#{pricing.whychooseus}"></h2>
+					<p class="white" th:text="#{pricing.services}" ></p>
+					<div class="thumbnail-box">
+						<ul class="list-inline">
+							<li><a href="#"><span class="fa fa-envelope"></span>Notification</a></li>
+							<li><a href="#"><span class="fa fa-users"></span>Users</a></li>
+							<li><a href="#">
+									<div class="new_tag"></div> <span class="fa fa-clipboard"></span>Test
+							</a></li>
+							<li><a href="#"><span class="fa fa-file"></span>Survy
+									</a></li>
+							<li><a href="#"><span class="fa fa-bar-chart"></span>Dashboard</a></li>
+							<li><a href="#"><span class="fa fa-home"></span>Rooms</a></li>
+							<li><a href="#">
+									<div class="new_tag hot_tag"></div> <span class="fa fa-folder"></span>Reports
+							</a></li>
+							<li><a href="#">
+									<div class="new_tag"></div> <span class="fa fa-diamond"></span>Quality
+							</a></li>
+							<li><a href="#"><span class="fa fa-clock-o"></span>Time</a></li>
+						</ul>
+					</div>
+					<button aria-expanded="false" class="btn transparent-btn"
+						type="button">Read More</button>
+				</article>
+			</div>
+			<!--container-->
+		</div>
+	</div>
+	<!-- WHY CHOOSE US END
+========================================================================= -->
+	<!-- PARTNER STARTS
+========================================================================= -->
+	<div class="padding-box">
+		<div class="container">
+			<div class="row header">
+				<div class="contents partner-carousel text-center">
+					<div>
+						<figure>
+							<span><img src="images/partners/partner-logo1.png" alt=""/></span>
+						</figure>
+					</div>
+				</div>
+				<!--row-->
+			</div>
+			<!--container-->
+		</div>
+	</div>
+	<!-- PARTNER END
+========================================================================= -->
+	<!-- SOCIAL SECTION STARTS
+========================================================================= -->
+	<div class="padding-box blue-color">
+		<div class="container">
+			<div class="row header">
+				<article class="col-xs-12 social-icons text-center">
+					<h2 class="white" th:text="#{pricing.join}"></h2>
+					<ul class="list-inline">
+						<li><a href="#"><span class="fa fa-facebook"></span>facebook</a></li>
+						<li><a href="#"><span class="fa fa-google-plus"></span>Google+</a></li>					
+					</ul>
+					<!--textbox-->
+				</article>
+				<!--row-->
+			</div>
+			<!--container-->
+		</div>
+	</div>
+	<div class="padding-box black2-color">
+		<div class="container">
+			<div class="row header">
+				<aside class="col-sm-4 col-xs-12 small_box">
+					<span class="fa fa-envelope"></span><a
+						href="mailto:hello@designingmedia.com">hello@designingmedia.com</a>
+				</aside>
+				<aside class="col-sm-5 col-xs-12 small_box">
+					<span class="fa fa-home"></span>121, King Street, Melbourne
+					Victoria 3000
+				</aside>
+				<aside class="col-sm-3 col-xs-12 small_box">
+					<span class="fa fa-phone-square"></span>(0800) 234 56789
+				</aside>
+				<!--row-->
+			</div>
+			<!--container-->
+		</div>
+	</div>
+	<!-- SOCIAL SECTION END
+========================================================================= -->
+		<!-- FOOTER STARTS
+========================================================================= -->	
+	<footer id="footer" th:replace="fragments/lan/footer :: footer"></footer>
+	<!-- FOOTER END
+========================================================================= -->
+
+</body>
+</html>

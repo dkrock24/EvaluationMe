@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- HEADER -->
+<head th:replace="/fragments/back/header :: header"></head>
+<body>
+
+	<div class="wrapper">
+		<header class="topnavbar-wrapper">
+			<!-- START Top Navbar-->
+			<nav role="navigation" class="navbar topnavbar">
+				<!-- START navbar header-->
+				<div class="navbar-header">
+					<a href="#/" class="navbar-brand">
+						<div class="brand-logo">
+							<img src="/assets/backend/img/logo.png" alt="App Logo"
+								class="img-responsive" />
+						</div>
+						<div class="brand-logo-collapsed">
+							<img src="/assets/backend/img/logo-single.png" alt="App Logo"
+								class="img-responsive" />
+						</div>
+					</a>
+				</div>
+				<!-- END navbar header-->
+				<!-- START Nav wrapper-->
+				<div class="nav-wrapper">
+					<!-- START Left navbar-->
+					<ul class="nav navbar-nav">
+						<li>
+							<!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+							<a href="#" data-trigger-resize=""
+							data-toggle-state="aside-collapsed" class="hidden-xs"> <em
+								class="fa fa-navicon"></em>
+						</a> <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+							<a href="#" data-toggle-state="aside-toggled"
+							data-no-persist="true" class="visible-xs sidebar-toggle"> <em
+								class="fa fa-navicon"></em>
+						</a>
+						</li>
+						<!-- START User avatar toggle-->
+						<li>
+							<!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+							<a id="user-block-toggle" href="#user-block"
+							data-toggle="collapse"> <em class="icon-user"></em>
+						</a>
+						</li>
+						<!-- END User avatar toggle-->
+						<!-- START lock screen-->
+						<li><a href="lock.html" title="Lock screen"> <em
+								class="icon-lock"></em>
+						</a></li>
+						<!-- END lock screen-->
+					</ul>
+					<!-- END Left navbar-->
+					<!-- START Right Navbar-->
+					<ul class="nav navbar-nav navbar-right">
+						<!-- Search icon-->
+						<li><a href="#" data-search-open=""> <em
+								class="icon-magnifier"></em>
+						</a></li>
+						<!-- Fullscreen (only desktops)-->
+						<li class="visible-lg"><a href="#" data-toggle-fullscreen="">
+								<em class="fa fa-expand"></em>
+						</a></li>
+						<!-- START Alert menu-->
+						<li class="dropdown dropdown-list"><a href="#"
+							data-toggle="dropdown"> <em class="icon-bell"></em>
+								<div class="label label-danger">11</div>
+						</a> <!-- START Dropdown menu-->
+							<ul class="dropdown-menu animated flipInX">
+								<li>
+									<!-- START list group-->
+									<div class="list-group">
+										<!-- list item-->
+										<a href="#" class="list-group-item">
+											<div class="media-box">
+												<div class="pull-left">
+													<em class="fa fa-twitter fa-2x text-info"></em>
+												</div>
+												<div class="media-box-body clearfix">
+													<p class="m0">New followers</p>
+													<p class="m0 text-muted">
+														<small>1 new follower</small>
+													</p>
+												</div>
+											</div>
+										</a>
+										<!-- list item-->
+										<a href="#" class="list-group-item">
+											<div class="media-box">
+												<div class="pull-left">
+													<em class="fa fa-envelope fa-2x text-warning"></em>
+												</div>
+												<div class="media-box-body clearfix">
+													<p class="m0">New e-mails</p>
+													<p class="m0 text-muted">
+														<small>You have 10 new emails</small>
+													</p>
+												</div>
+											</div>
+										</a>
+										<!-- list item-->
+										<a href="#" class="list-group-item">
+											<div class="media-box">
+												<div class="pull-left">
+													<em class="fa fa-tasks fa-2x text-success"></em>
+												</div>
+												<div class="media-box-body clearfix">
+													<p class="m0">Pending Tasks</p>
+													<p class="m0 text-muted">
+														<small>11 pending task</small>
+													</p>
+												</div>
+											</div>
+										</a>
+										<!-- last list item-->
+										<a href="#" class="list-group-item"> <small>More
+												notifications</small> <span class="label label-danger pull-right">14</span>
+										</a>
+									</div> <!-- END list group-->
+								</li>
+							</ul> <!-- END Dropdown menu--></li>
+						<!-- END Alert menu-->
+						<!-- START Offsidebar button-->
+						<li><a href="#" data-toggle-state="offsidebar-open"
+							data-no-persist="true"> <em class="icon-notebook"></em>
+						</a></li>
+						<!-- END Offsidebar menu-->
+					</ul>
+					<!-- END Right Navbar-->
+				</div>
+				<!-- END Nav wrapper-->
+				<!-- START Search form-->
+				<form role="search" action="search.html" class="navbar-form">
+					<div class="form-group has-feedback">
+						<input type="text" placeholder="Type and hit enter ..."
+							class="form-control" />
+						<div data-search-dismiss=""
+							class="fa fa-times form-control-feedback"></div>
+					</div>
+					<button type="submit" class="hidden btn btn-default">Submit</button>
+				</form>
+				<!-- END Search form-->
+			</nav>
+			<!-- END Top Navbar-->
+		</header>
+
+		<div th:replace="/fragments/back/menu :: div"></div>
+
+		<div class="" style="margin-left: 220px;">
+			<!-- Page content-->
+			<section>
+			<div class="content-wrapper">
+				<div class="content-heading">
+					<!-- START Language list-->
+					<div class="pull-right">
+						<div class="btn-group">
+							<button type="button" data-toggle="dropdown"
+								class="btn btn-default">English</button>
+							<ul role="menu"
+								class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+								<li><a href="#" data-set-lang="en">English</a></li>
+								<li><a href="#" data-set-lang="es">Spanish</a></li>
+							</ul>
+						</div>
+					</div>			
+					<span>Users Administration</span>
+				</div>
+				<!-- START widgets box-->
+				<div class="row">
+	               <div class="col-lg-3 col-sm-6">
+	                  <!-- START widget-->
+	                  <div class="panel widget bg-primary">
+	                     <div class="row row-table">
+	                        <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+	                           <em class="icon-user fa-3x"></em>
+	                        </div>
+	                        <div class="col-xs-8 pv-lg">	                           
+	                           <div class="text-uppercase">
+	                           	<a href="newUser" class="btn btn-default">Create New user</a>
+	                           </div>
+	                        </div>
+	                     </div>
+	                  </div>
+	               </div>
+	               <div class="col-lg-3 col-sm-6">
+	                  <!-- START widget-->
+	                  <div class="panel widget bg-purple">
+	                     <div class="row row-table">
+	                        <div class="col-xs-4 text-center bg-purple-dark pv-lg">
+	                           <em class="icon-globe fa-3x"></em>
+	                        </div>
+	                        <div class="col-xs-8 pv-lg">
+	                           <div class="h2 mt0">700
+	                              <small>GB</small>
+	                           </div>
+	                           <div class="text-uppercase">Quota</div>
+	                        </div>
+	                     </div>
+	                  </div>
+	               </div>
+	               <div class="col-lg-3 col-md-6 col-sm-12">
+	                  <!-- START widget-->
+	                  <div class="panel widget bg-green">
+	                     <div class="row row-table">
+	                        <div class="col-xs-4 text-center bg-green-dark pv-lg">
+	                           <em class="icon-bubbles fa-3x"></em>
+	                        </div>
+	                        <div class="col-xs-8 pv-lg">
+	                           <div class="h2 mt0">500</div>
+	                           <div class="text-uppercase">Reviews</div>
+	                        </div>
+	                     </div>
+	                  </div>
+	               </div>
+	               <div class="col-lg-3 col-md-6 col-sm-12">
+                  <!-- START date widget-->
+                  <div class="panel widget">
+                     <div class="row row-table">
+                        <div class="col-xs-4 text-center bg-green pv-lg">
+                           <!-- See formats: https://docs.angularjs.org/api/ng/filter/date-->
+                           <div data-now="" data-format="MMMM" class="text-sm"></div>
+                           <br/>
+                           <div data-now="" data-format="D" class="h2 mt0"></div>
+                        </div>
+                        <div class="col-xs-8 pv-lg">
+                           <div data-now="" data-format="dddd" class="text-uppercase"></div>
+                           <br/>
+                           <div data-now="" data-format="h:mm" class="h2 mt0"></div>
+                           <div data-now="" data-format="a" class="text-muted text-sm"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- END date widget-->
+               </div>
+            	</div>		
+				<!-- END widgets box-->
+				
+				
+			</div>
+			</section>
+			
+			<section>
+				<div class="content-wrapper">
+		            <div class="container-fluid">
+		            	<div class="row">
+		                  <form action="saveUser" method="post" modelAttribute="Users">
+														<table class="table table-striped">
+															<thead>		
+																<th>Roles Name</th>														
+																<th>First Name</th>
+																<th>Last Name</th>
+																<th>Email</th>
+																<th>Password</th>
+																<th>Birthday</th>
+																<th>Status</th>
+																<th>Actions</th>
+															</thead>
+															<tbody>
+																<tr>	
+																<td>
+																	<select name="Role" class="form-control border-input">																												
+																		<option th:each="role : ${ roles }" th:value="${ role.idRole }" th:text="${role.role}"  ></option>
+																	</select>
+																</td>																
+																	<td><input type="text" value="" class="form-control border-input" name="firstName" /></td>
+																	<td><input type="text" value="" class="form-control border-input" name="lastName" /></td>
+																	<td><input type="text" value="" class="form-control border-input" name="email" /></td>
+																	<td><input type="password" value="" class="form-control border-input" name="password" /></td>
+																	<td><input type="date" value="" class="form-control border-input" name="age" /></td>
+																	<td>
+																		<select name="status" class="form-control border-input">																																								
+																			<option  value="1">Active</option>
+																			<option  value="2">Inactive</option>																			
+																		</select>
+																	</td>
+																	<td>
+																	<input type="submit" name="Update" value="Create" class="btn btn-default border-input"/>
+																	
+																	<a href="/Users/index" class="btn btn-info">Back</a></td>
+																</tr>
+															</tbody>
+														</table>
+													</form>
+		               </div>
+		            </div>
+				</div>
+			</section>
+		</div>
+
+		
+		
+
+		
+	</div>
+
+
+</body>
+<footer th:replace="/fragments/back/footer :: footer"></footer>
+
+
+<script th:src="@{ /assets/backend/vendor/datatables/media/js/jquery.dataTables.min.js }"></script>
+<script th:src="@{ /assets/backend/vendor/datatables-colvis/js/dataTables.colVis.js }"></script>
+<script th:src="@{ /assets/backend/vendor/datatables/media/js/dataTables.bootstrap.js }"></script>
+
+<script th:src="@{ /assets/backend/vendor/datatables-buttons/js/buttons.print.js }"></script>
+<script th:src="@{ /assets/backend/vendor/datatables-responsive/js/dataTables.responsive.js }"></script>
+<script th:src="@{ /assets/backend/vendor/datatables-responsive/js/responsive.bootstrap.js }"></script>
+<script th:src="@{ /assets/backend/vendor/demo/demo-datatable.js }"></script>
+
+</html>

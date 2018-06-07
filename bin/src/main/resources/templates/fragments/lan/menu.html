@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header id="header" th:fragment="header">
+	<!-- NAVIGATION STARTS
+========================================================================= -->
+	<nav id="navigation">
+		<div class="navbar navbar-inverse" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<!--  Logo Starts -->
+				<a class="navbar-brand" href="index"><img
+					th:src="@{ /assets/landing/images/logo.png }" alt="" /></a>
+				<!-- Logo Ends -->
+			</div>
+			<div class="collapse navbar-collapse pull-right">
+				<ul class="nav navbar-nav">
+					<li class="current"><a href="index.html"><span
+							class="fa fa-home"></span></a></li>
+					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"
+						th:text="#{menu.product}"><b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="../about">Quizzes</a></li>
+							<li><a href="services.html">Survey</a></li>
+							<li><a href="team-members.html">Dashboard</a></li>
+							<li><a href="testimonials.html">Stadistic</a></li>
+							<li><a href="404.html">Reports</a></li>
+							<li><a href="sitemap.html">Notifications</a></li>
+						</ul></li>
+					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"
+						th:text="#{menu.features}"><b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="single-portfolio-1.html">Single Portfolio 1</a></li>
+							<li><a href="single-portfolio-2.html">Single Portfolio 2</a></li>
+
+						</ul></li>
+
+					<li><a href="pricing" th:text="#{menu.pricing}">Pricing</a></li>
+					<li><a href="register" th:text="#{menu.register}">Register</a></li>
+				</ul>
+				<ul class="nav navbar-nav nav_top_rt">
+					<li><a href="about" th:text="#{menu.about}">About</a></li>
+					<li><a href="contact-us" th:text="#{menu.contact}">Contact</a></li>
+					<li><a href="login" th:text="#{menu.login}">Login</a></li>
+					<li><select id="locales">
+							<option value=""></option>
+							<option value="en" th:text="#{lang.en}"></option>
+							<option value="de" th:text="#{lang.es}"></option>
+					</select></li>
+					<li class="search" id="dmsearch"><a href="#"
+						class="fa fa-search"></a>
+						<form id="searchform" action="#" method="get">
+							<div class="dm-search-container">
+								<input id="s" class="dmsearch-input" type="text" name="s"
+									value="" placeholder="Search on this site" />
+							</div>
+							<input id="go" class="dmsearch-submit" type="submit" value="" />
+							<span class="searchicon"></span>
+						</form> <!-- end searchform --></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+		<div class="navspacer"></div>
+	</nav>
+	<!-- /. NAVIGATION ENDS
+========================================================================= -->
+</header>
+
+</html>

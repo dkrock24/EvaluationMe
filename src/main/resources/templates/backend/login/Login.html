@@ -14,7 +14,7 @@
                </a>
             </div>
             <div class="panel-body">
-               <p class="text-center pv">SIGN IN TO CONTINUE.</p>
+               <p class="text-center pv">SIGN IN TO CONTINUE. <span th:text="${name}"></span></p>
                <form role="form" data-parsley-validate="" novalidate="" class="mb-lg" action="authentication" method="post">
                   <div class="form-group has-feedback">
                      <input id="exampleInputEmail1" name="email" type="email" placeholder="Enter email" autocomplete="off"  class="form-control"/>
