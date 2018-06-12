@@ -9,6 +9,8 @@ import org.springframework.data.repository.query.Param;
 import com.focus.levelup.model.User;
 
 public interface UserService extends CrudRepository<User, Integer> {
+	
+	User findByEmail(String email);
 
 //	// Get all users ascending ordered
 //	@Query("SELECT u FROM Users u ORDER BY u.idUser ASC")

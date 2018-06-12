@@ -70,6 +70,12 @@
 			<groupId>org.springframework.security.oauth</groupId>
 			<artifactId>spring-security-oauth2</artifactId>
 		</dependency>
+		<dependency>
+			<artifactId></artifactId>
+		</dependency>
+		<dependency>
+			<artifactId></artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

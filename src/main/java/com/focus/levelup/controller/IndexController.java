@@ -5,9 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.focus.levelup.model.Role;
+import com.focus.levelup.model.User;
 import com.focus.levelup.services.RoleServices;
 
 @Controller
@@ -21,8 +25,7 @@ public class IndexController {
 	public String demo(Model model) {
 		
 		List<Role> role =  (List<Role>) roleServices.findAll();
-		
-		//model.addAttribute("data", role);
+
 		return "backend/home/index";
 	}
 	

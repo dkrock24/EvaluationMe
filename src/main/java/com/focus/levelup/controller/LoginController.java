@@ -3,6 +3,7 @@ package com.focus.levelup.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import ch.qos.logback.core.net.LoginAuthenticator;
 
 @Controller
 @RequestMapping("login")
+@EnableWebSecurity
 public class LoginController {
 	
 	@Autowired
@@ -57,7 +59,7 @@ public class LoginController {
 			
 			pagina = "redirect:/Dashboard/index";
 			for(User u : user) {
-				model.addAttribute("name",u.getFirstName());
+								
 			}
 		}else {
 			pagina = "redirect:/login/index";
