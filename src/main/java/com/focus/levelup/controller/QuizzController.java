@@ -196,7 +196,7 @@ public class QuizzController {
 		model.addAttribute("quizz", quiz);
 		
 		// Return a list of questions
-		List<Question> question = (List<Question>) quiz.getQuestions();
+		List<Question> question = quiz.getQuestions();
 		model.addAttribute("question",question);
 		
 		// Find Quizz

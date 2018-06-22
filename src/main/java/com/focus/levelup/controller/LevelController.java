@@ -14,8 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.focus.levelup.model.QuizLevel;
-import com.focus.levelup.model.User;
-
 import com.focus.levelup.services.QuizLevelsService;
 import com.focus.levelup.services.QuizzesServices;
 import com.focus.levelup.services.TestsService;

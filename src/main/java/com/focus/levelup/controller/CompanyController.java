@@ -1,8 +1,5 @@
 package com.focus.levelup.controller;
 
-import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.focus.levelup.model.Company;
 import com.focus.levelup.model.CompanyUser;
 import com.focus.levelup.model.Country;
-import com.focus.levelup.model.User;
 import com.focus.levelup.services.CompanyService;
 import com.focus.levelup.services.CompanyUserService;
 import com.focus.levelup.services.CountryService;
@@ -37,7 +33,7 @@ public class CompanyController {
 	@RequestMapping("index")
 	public String index(Model model) {
 		
-		Company company = (Company) companyServices.findOne(5 );				
+		Company company = companyServices.findOne(5 );				
 		model.addAttribute("company", company);		
 		
 		return "backend/company/index";
@@ -71,7 +67,7 @@ public class CompanyController {
 	@RequestMapping("edit/{id}")
 	public String update( Model model, @PathVariable int id ) {
 		
-		Company company = (Company) companyServices.findOne( id );				
+		Company company = companyServices.findOne( id );				
 		model.addAttribute("company", company);		
 		
 		return "backend/company/update";
