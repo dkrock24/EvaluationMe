@@ -1,0 +1,89 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/lan/header :: header"></head>
+
+<body class="login" id="page-top">
+<!-- LOGIN START
+========================================================================= -->
+<div class="blue-color full-container text-center">
+  <div>
+    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 login-box"> <a class="logo" href="index.html"><img alt="logo" src="/assets/landing/images/logo.png"/></a>
+      <aside class="col-xs-12 textbox">
+        <h2 class="black"> Registro</h2>
+        
+        <form action="insert" method="post" id="loginform" modelAttribute="Company">
+          
+          <div class="form-group">
+            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" placeholder="Company Name" name="name" class="form-control" required="required"/>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="phone" placeholder="Telefono" name="tel" class="form-control" required="required"/>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>              
+              <select name="country" class="form-control">
+              	<option th:each="countries : ${country}" th:value="${countries.idCountry}" th:text="${countries.countryName}"></option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" placeholder="Description" name="description" class="form-control" required="required"/>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="email" placeholder="Email" name="email" class="form-control" required="required"/>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" placeholder="Country" name="country" class="form-control" required="required"/>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" placeholder="States" name="state" class="form-control" required="required"/>
+            </div>
+          </div>         
+          
+          
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"/> 
+                <span th:text="#{login.remember}"></span>	
+                </label>
+              <a href="#" th:text="#{login.Forgot}"></a> </div>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="dmbutton btn btn-primary" value="Login" />
+          </div>
+        </form>
+        <!--textbox--> 
+      </aside>
+      <div class="copyright-text">Copyright © 2018</div>
+      <!--login-box--> 
+    </div>
+  </div>
+  <!--blue-color--> 
+</div>
+<!-- /. LOGIN ENDS
+    ========================================================================= --> 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>
